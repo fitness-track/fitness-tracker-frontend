@@ -9,6 +9,6 @@
 ### Finally:
 `npm start`
 
-### `npm start` to start developing
+## Once complete:
 ### `npm build` to build a folder for deployment
 
