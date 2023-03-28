@@ -2,11 +2,11 @@
 ## Scrum Leader: David
 
 ## Setup:
-First:
+### First:
 `git clone https://github.com/fitness-track/fitness-tracker-frontend`
-Second:
+### Second:
 `npm install`
-Finally:
+### Finally:
 `npm start`
 
 ### `npm start` to start developing
