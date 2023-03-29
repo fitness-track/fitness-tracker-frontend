@@ -9,7 +9,7 @@ export function Register({setToken}) {
   async function registerUser(){
     event.preventDefault()
     try{
-      const response = await fetch ('https://fitnesstrac-kr.herokuapp.com/api/2211FTB-CT-WEB-PT/users/register',{
+      const response = await fetch ('https://fitnesstrac-kr.herokuapp.com/api/users/register',{
         method:"POST",
         headers:{
           'Content-Type':'application/json'
