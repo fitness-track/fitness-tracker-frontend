@@ -17,7 +17,7 @@ export default Activities;
 //   const [activities, setActivities] = useState([]);  
   
 //   useEffect(()=>{
-//     async function getActs(){
+//     async function getActivitiesAPI(){
 //       try{
 //         const response = await getActivities()
 //         setActivities(response)
@@ -25,7 +25,7 @@ export default Activities;
 //         console.error(error)
 //       }
 //     }
-//     getActs();
+//     getActivitiesAPI();
 //   },[]);
   
 

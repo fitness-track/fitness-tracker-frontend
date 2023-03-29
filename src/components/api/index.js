@@ -1,4 +1,4 @@
-async function getActivities(){
+export async function getActivities(){
   const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities"
   try {
     const response = await fetch(APIURL)
@@ -8,5 +8,3 @@ async function getActivities(){
     console.error (error);
   }
 }
-
-export default getActivities;
