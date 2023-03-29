@@ -10,7 +10,7 @@ export function Login({setToken}) {
   async function loginUser(){
     event.preventDefault()
     try{
-      const response = await fetch ('https://fitnesstrac-kr.herokuapp.com/api/2211FTB-CT-WEB-PT/users/login',{
+      const response = await fetch ('https://fitnesstrac-kr.herokuapp.com/api/users/login',{
         method:"POST",
         headers:{
           'Content-Type':'application/json'
