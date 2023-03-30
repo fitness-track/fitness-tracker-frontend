@@ -1,22 +1,18 @@
-export async function getUsersMeAPI(token, setIsLoggedIn, setUsername){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/users/me"
-  
+import { useParams } from "react-router";
+
+export async function getUsernameRoutines(token){
+  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/users/"
+  const {username} = useParams();
   try {
     const bearer = "bearer " + token
-    const response = await fetch(APIURL, {
+    const response = await fetch(APIURL + username + "/routines", {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': bearer
       },
     })
     const results = await response.json();
-    if (!results.error){
-      setUsername(results.username)
-      setIsLoggedIn(true)
-    } else {
-      setIsLoggedIn(false)
-      throw (results.error);
-    }
+    return results;
     
 } catch(error) {
     console.error (error);
