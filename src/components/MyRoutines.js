@@ -1,7 +1,5 @@
-function MyRoutines() {
+export default function MyRoutines() {
   return(
     <div>MyRoutines</div>
   )
 }
-
-export default MyRoutines;

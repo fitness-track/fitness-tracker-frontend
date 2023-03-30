@@ -1,7 +1,5 @@
-function Routines() {
+export default function Routines() {
   return(
     <div>Routines</div>
   )
 }
-
-export default Routines;
