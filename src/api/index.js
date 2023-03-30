@@ -1,9 +1,11 @@
-export async function postActivityAPI(token, activityName, activityDescription){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities/"
+import { useParams } from "react-router";
 
+export async function patchActivityByIdAPI(token, activityName, activityDescription){
+  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities/"
+  const { activityId } = useParams();
   try {
     const bearer = "bearer " + token
-    const response = await fetch(APIURL, {
+    const response = await fetch(APIURL + activityId, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': bearer
