@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 
 export async function getActivitiesAPI(){
   const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities"
@@ -16,6 +16,7 @@ export async function getRoutinesAPI(){
   try {
     const response = await fetch(APIURL)
     const results = await response.json();
+    console.log(results)
     return results;
   } catch(error) {
     console.error (error);
@@ -45,24 +46,24 @@ export async function getUsersMeAPI(token){
   }
 }
 
-export async function getUsernameRoutines(token){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/users/"
-  const {username} = useParams();
-  try {
-    const bearer = "bearer " + token
-    const response = await fetch(APIURL + username + "/routines", {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': bearer
-      },
-    })
-    const results = await response.json();
-    return results;
+// export async function getUsernameRoutines(token){
+//   const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/users/"
+//   const {username} = useParams();
+//   try {
+//     const bearer = "bearer " + token
+//     const response = await fetch(APIURL + username + "/routines", {
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': bearer
+//       },
+//     })
+//     const results = await response.json();
+//     return results;
 
-  } catch(error) {
-      console.error (error);
-  }
-}
+//   } catch(error) {
+//       console.error (error);
+//   }
+// }
 
 export async function postActivityAPI(token, activityName, activityDescription){
   const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities/"
@@ -91,29 +92,29 @@ export async function postActivityAPI(token, activityName, activityDescription){
   }
 }
 
-export async function patchActivityByIdAPI(token, activityName, activityDescription){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities/"
-  const { activityId } = useParams();
-  try {
-    const bearer = "bearer " + token
-    const response = await fetch(APIURL + activityId, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': bearer
-      },
-      body: JSON.stringify({
-        name: activityName,
-        description: activityDescription
-      })
-    });
-    const results = await response.json();
-    if (!results.error){
-      return results;
-    } else {
-      throw (results.error)
-    }
+// export async function patchActivityByIdAPI(token, activityName, activityDescription){
+//   const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities/"
+//   const { activityId } = useParams();
+//   try {
+//     const bearer = "bearer " + token
+//     const response = await fetch(APIURL + activityId, {
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': bearer
+//       },
+//       body: JSON.stringify({
+//         name: activityName,
+//         description: activityDescription
+//       })
+//     });
+//     const results = await response.json();
+//     if (!results.error){
+//       return results;
+//     } else {
+//       throw (results.error)
+//     }
 
-} catch(error) {
-    console.error (error);
-  }
-}
+// } catch(error) {
+//     console.error (error);
+//   }
+// }
