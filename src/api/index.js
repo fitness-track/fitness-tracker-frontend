@@ -16,7 +16,6 @@ export async function getRoutinesAPI(){
   try {
     const response = await fetch(APIURL)
     const results = await response.json();
-    console.log(results)
     return results;
   } catch(error) {
     console.error (error);

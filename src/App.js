@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { useState } from "react";
+import {Routes, Route} from "react-router-dom";
 
 import{
   Activities,
@@ -18,7 +17,6 @@ import {Register} from './components/account/Register'
 
 
 export default function App() {
-  const [routine, setRoutine] = useState([])
   const [token, setToken] = useState('')  
   
   return(
@@ -43,7 +41,3 @@ export default function App() {
      <Footer/>
   </>
 )}
-
-
-// const root = ReactDOM.createRoot(document.getElementById("app"))
-// root.render(<BrowserRouter><App/></BrowserRouter>)

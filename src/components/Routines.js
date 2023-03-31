@@ -4,17 +4,14 @@ import { getRoutinesAPI} from "../api"
 export default function Routines({token}) {
   const [routines, setRoutines] = useState([]);  
 
-    useEffect(()=>{
-    async function getRoutinesAPI(){
-      try{
+      useEffect(()=>{
+      async function getRoutines(){
         const response = await getRoutinesAPI()
+        console.log("Hello!");
         setRoutines(response)
-      } catch(error) {
-        console.error(error)
       }
-    }
-    getRoutinesAPI();
-  },[]);
+      getRoutines();
+    },[]);
 
   return(
         <div>
