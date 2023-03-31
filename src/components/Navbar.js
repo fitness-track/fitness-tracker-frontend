@@ -18,7 +18,7 @@ export default function Navbar({token}){
           </div>
             <Link to="Routines">Posts</Link>
             <Link to="Login">Login</Link>
-            { token? <Link to={`Profile/${name}`}>Profile</Link> : null}
+            {/* { token? <Link to={`Profile/${name}`}>Profile</Link> : null} */}
 
         </>
 
