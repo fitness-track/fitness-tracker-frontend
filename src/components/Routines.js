@@ -1,12 +1,26 @@
+import { useEffect, useState } from "react";
 import { getRoutinesAPI} from "../api"
 
-export default function Routines() {
-  const routines = getRoutinesAPI();
+export default function Routines({token}) {
+  const [routines, setRoutines] = useState([]);  
+
+    useEffect(()=>{
+    async function getRoutinesAPI(){
+      try{
+        const response = await getRoutinesAPI()
+        setRoutines(response)
+      } catch(error) {
+        console.error(error)
+      }
+    }
+    getRoutinesAPI();
+  },[]);
+
   return(
         <div>
           <h1>Fitness Track</h1>
           {
-            routines.map((routine)=>{
+            routines?.map((routine)=>{
               return (
                 <div>
                   <p>Routine ID: {routine.id}</p>
