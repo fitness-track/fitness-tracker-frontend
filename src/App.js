@@ -32,7 +32,7 @@ export default function App() {
         <Route path="Routines" element={<Routines token={token}/>}></Route>
         <Route path="MyRoutines/:username" element={<MyRoutines/>}></Route>
         <Route path="Loading" element={<Loading/>}></Route>
-        <Route path="Activities" element={<Activities/>}></Route>
+        <Route path="Activities/:activityId" element={<Activities/>}></Route>
         <Route path="Register" element={<Register setToken={setToken}/>}></Route>
         <Route path="Login" element={<Login setToken={setToken}/>}></Route>
 
