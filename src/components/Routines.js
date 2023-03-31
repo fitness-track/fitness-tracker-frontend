@@ -15,7 +15,6 @@ export default function Routines({token}) {
 
   return(
         <div>
-          <h1>Fitness Track</h1>
           {
             routines?.map((routine)=>{
               return (
