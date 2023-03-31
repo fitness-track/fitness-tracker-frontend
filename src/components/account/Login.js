@@ -1,13 +1,13 @@
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
-export function Login({setToken}) {
+export async function Login({setToken}) {
   const [userName, setUserName]= useState('')
   const [password, setPassword]= useState('')
   const [verifiedUser, setVerifiedUser]= useState('')
   const navigate = useNavigate()
 
-  async function loginUser(){
+  async function loginUser(event){
     event.preventDefault()
     try{
       const response = await fetch ('https://fitnesstrac-kr.herokuapp.com/api/users/login',{
@@ -41,5 +41,3 @@ export function Login({setToken}) {
     </form>
   )
 }
-
-export default Login;

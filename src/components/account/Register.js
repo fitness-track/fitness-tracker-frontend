@@ -1,12 +1,13 @@
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
-export function Register({setToken}) {
+export async function Register({setToken}) {
   const [userName, setUserName]= useState('')
   const [password, setPassword]= useState('')
+  const [verifiedUser, setVerifiedUser]= useState('')
   const navigate = useNavigate()
 
-  async function registerUser(){
+  async function registerUser(event){
     event.preventDefault()
     try{
       const response = await fetch ('https://fitnesstrac-kr.herokuapp.com/api/users/register',{
@@ -43,4 +44,3 @@ export function Register({setToken}) {
   )
 }
 
-export default Register;
