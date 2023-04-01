@@ -15,6 +15,7 @@ export default function Routines({token}) {
 
   return(
 
+
 <section className="container text-center">
   <div className="wrapper">
     <div className="subWrapper">
@@ -55,6 +56,7 @@ export default function Routines({token}) {
                 )
                 })
                 }
+
                 </div>
               </div>
             </div>

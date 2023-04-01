@@ -37,7 +37,6 @@ export async function getUsersMeAPI(token){
     } else {
       throw (results.error);
     }
-
 } catch(error) {
     console.error (error);
   }
@@ -56,7 +55,6 @@ export async function getUsernameRoutines(username, token){
     })
     const results = await response.json();
     return results;
-
   } catch(error) {
       console.error (error);
   }
@@ -68,6 +66,7 @@ export async function postActivityAPI(token, activityName, activityDescription){
   try {
     const bearer = "bearer " + token
     const response = await fetch(APIURL, {
+      method: "POST",
       headers: {
         'Content-Type': 'application/json',
         'Authorization': bearer
@@ -83,7 +82,6 @@ export async function postActivityAPI(token, activityName, activityDescription){
     } else {
       throw (results.error)
     }
-
 } catch(error) {
     console.error (error);
   }
@@ -95,6 +93,7 @@ export async function patchActivityByIdAPI(token, activityId, activityName, acti
   try {
     const bearer = "bearer " + token
     const response = await fetch(APIURL + activityId, {
+      method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
         'Authorization': bearer
@@ -110,8 +109,174 @@ export async function patchActivityByIdAPI(token, activityId, activityName, acti
     } else {
       throw (results.error)
     }
-
 } catch(error) {
+    console.error (error);
+  }
+}
+
+export async function getRoutinesWithActivityIdAPI(activityId){
+  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities/"
+  
+  try {
+    const response = await fetch(APIURL + activityId + "/routines", {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const results = await response.json();
+    if (!results.error){
+      return results;
+    } else {
+      throw (results.error)
+    }
+} catch(error) {
+    console.error (error);
+  }
+}
+
+export async function postRoutineAPI(token, routineName, goal, isPublic){
+  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/routines/"
+
+  try {
+    const bearer = "bearer " + token
+    const response = await fetch(APIURL, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': bearer
+      },
+      body: JSON.stringify({
+        routineName: routineName,
+        goal: goal,
+        isPublic: isPublic
+      })
+    });
+    const results = await response.json();
+    if (!results.error){
+      return results;
+    } else {
+      throw (results.error)
+    }
+} catch(error) {
+    console.error (error);
+  }
+}
+
+export async function patchRoutineByIdAPI(token, routineId, routineName, goal, isPublic){
+  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/routines/"
+  
+  try {
+    const bearer = "bearer " + token
+    const response = await fetch(APIURL + routineId, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': bearer
+      },
+      body: JSON.stringify({
+        routineName: routineName,
+        goal: goal,
+        isPublic: isPublic
+      })
+    });
+    const results = await response.json();
+    if (!results.error){
+      return results;
+    } else {
+      throw (results.error)
+    }
+} catch(error) {
+    console.error (error);
+  }
+}
+
+export async function deleteRoutineById(token, routineId){
+  const bearer = "bearer " + token
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/routines/"
+  try {
+    const response = await fetch(APIURL + routineId, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': bearer
+      },
+    });
+    const results = await response.json();
+    return results;
+  } catch(error) {
+    console.error (error);
+  }
+}
+
+export async function postActivityToRoutineAPI(token, routineId, activityId, count, duration){
+  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/routines/"
+
+  try {
+    const bearer = "bearer " + token
+    const response = await fetch(APIURL + routineId | "/activities", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': bearer
+      },
+      body: JSON.stringify({
+        activityId: activityId,
+        count: count, 
+        duration: duration
+      })
+    });
+    const results = await response.json();
+    if (!results.error){
+      return results;
+    } else {
+      throw (results.error)
+    }
+} catch(error) {
+    console.error (error);
+  }
+}
+
+export async function patchRoutineActivityByIdAPI(token, routineActivityId, count, duration){
+  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/routine_activities/"
+  
+  try {
+    const bearer = "bearer " + token
+    const response = await fetch(APIURL + routineActivityId, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': bearer
+      },
+      body: JSON.stringify({
+        count: count, 
+        duration: duration
+      })
+    });
+    const results = await response.json();
+    if (!results.error){
+      return results;
+    } else {
+      throw (results.error)
+    }
+} catch(error) {
+    console.error (error);
+  }
+}
+
+export async function deleteRoutineActivityById(token, routineActivityId){
+  const bearer = "bearer " + token
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/routines_activities/"
+  try {
+    const response = await fetch(APIURL + routineActivityId, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': bearer
+      },
+    });
+    const results = await response.json();
+    return results;
+  } catch(error) {
     console.error (error);
   }
 }
