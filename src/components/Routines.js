@@ -13,8 +13,13 @@ export default function Routines({token}) {
       getRoutines();
     },[]);
 
-  return(
+  const RandomVerb = () => {
+      const verbArray = ["Created", "Pumped", "Created", "Ripped", "Get Swol", "Created", "Jacked", "Lifted", "Crunched", "Created", "Setlist"] 
+      const randomVerb = verbArray[Math.floor(Math.random() * verbArray.length)];
+      return randomVerb + " by: "
+  }
 
+  return(
 
 <section className="container text-center">
   <div className="wrapper">
@@ -42,14 +47,14 @@ export default function Routines({token}) {
                     <h2 className="accordion-header">
                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#rId" + routine.id + routineActivity.id} aria-expanded="true" aria-controls={"rId" + routine.id + routineActivity.id}>
                       {/* <p>Activity ID: {routineActivity.id}</p> */}
-                      Activity Name: {routineActivity.name}
+                      Activity: {routineActivity.name}
                     </button>                            
                     </h2>
                     <div id={"rId" + routine.id + routineActivity.id} className="accordion-collapse collapse" data-bs-parent={"#rId" + routine.id}>
                       <div className="accordion-body">
-                        <p><strong>Activity Description: {routineActivity.description}</strong></p>
-                        <p>Activity Duration: {routineActivity.duration}</p>
-                        <p>Activity Count.: {routineActivity.count}</p>
+                        <p><strong>Description: {routineActivity.description}</strong></p>
+                        <p>Duration: {routineActivity.duration}</p>
+                        <p>Count.: {routineActivity.count}</p>
                       </div>
                     </div>
                   </div>
@@ -61,7 +66,7 @@ export default function Routines({token}) {
               </div>
             </div>
             <div className="card-footer">
-            <h5><i className="bi bi-person-circle"></i>Created By: {routine.creatorName}</h5>
+            <h5><i className="bi bi-person-circle"></i><RandomVerb/> {routine.creatorName}</h5>
             </div>
           </div>
         </div>
