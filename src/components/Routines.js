@@ -26,10 +26,12 @@ export default function Routines({token}) {
 {
   routines?.map((routine)=>{
     return (
-        <div className="col">
-          <div className="card routinesCard text-bg-primary" key={"rId" + routine.id}>
+        routine.isPublic?
+        <div className="col" key={"rId" + routine.id}>
+          <div className="card routinesCard text-bg-primary">
             {/* <p>Routine ID: {routine.id}</p> */}
             {/* <p>Creator ID: {routine.creatorId}</p> */}
+            {/* <p>isPublic: {routine.isPublic}</p> */}
             <div className="card-body">
               <h3>{routine.name}</h3>
               <h5>{routine.goal}</h5>
@@ -67,7 +69,7 @@ export default function Routines({token}) {
             <h5><i className="bi bi-person-circle"></i>Created By: {routine.creatorName}</h5>
             </div>
           </div>
-        </div>
+        </div>:null
     )
   })
 }
