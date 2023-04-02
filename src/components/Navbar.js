@@ -10,7 +10,7 @@ export default function Navbar({token}){
             <br></br>
             <Link to="Activities">Activities</Link>
             <br></br>
-            <Link to="Profile"></Link>
+            <Link to="MyRoutines">Profile</Link>
         </>
 
     )

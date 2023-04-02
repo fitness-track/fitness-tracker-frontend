@@ -1,5 +1,5 @@
 export default function MyRoutines() {
   return(
-    <div>MyRoutines</div>
+    <div>My Routines!</div>
   )
 }
