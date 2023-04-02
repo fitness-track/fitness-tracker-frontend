@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
 import { getRoutinesAPI} from "../api"
+import Loading from "./Loading";
 import './Routines.css';
 
 export default function Routines({token}) {
   const [routines, setRoutines] = useState([]);
-
-      useEffect(()=>{
-      async function getRoutines(){
-        const response = await getRoutinesAPI()
-        setRoutines(response)
-      }
-      getRoutines();
-    },[]);
+  const [isLoading, setIsLoading] = useState(false)
+  
+  useEffect(()=>{
+    async function getRoutines(){
+      setIsLoading(true)
+      const response = await getRoutinesAPI()
+      setRoutines(response)
+      setIsLoading(false)
+    }
+    getRoutines();
+  },[]);
 
   return(
-
-
+    isLoading?<Loading/>:
 <section className="container text-center">
   <div className="wrapper">
     <div className="subWrapper">
