@@ -17,6 +17,7 @@ export default function Navbar({token}){
             </ul>
           </div>
             <Link to="Routines">Routines</Link>
+            <Link to="Activities">Activities</Link>
             <Link to="Login">Login</Link>
             {/* { token? <Link to={`Profile/${name}`}>Profile</Link> : null} */}
 
