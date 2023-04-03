@@ -1,7 +1,7 @@
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
-export async function Login({setToken}) {
+export function Login({setToken}) {
   const [userName, setUserName]= useState('')
   const [password, setPassword]= useState('')
   const [verifiedUser, setVerifiedUser]= useState('')
@@ -21,8 +21,8 @@ export async function Login({setToken}) {
         })
       });
       let result = await response.json()
-      setToken(result.data.token)
-      localStorage.setItem("token", result.data.token)
+      setToken(result.token)
+      localStorage.setItem("token", result.token)
       //If we choose to take this route for setVerifiedUser
       setVerifiedUser(userName)
       navigate("/MyRoutines")

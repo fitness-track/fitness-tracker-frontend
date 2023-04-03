@@ -7,6 +7,7 @@ export default function Navbar({token}){
 
     return(
         <>
+
         <div class="navbar">
             <Link to="Routines" class="routine"><i class="routine"></i>ROUTINES</Link>
             <Link to="Activities" class="activity"><i class="activity"></i>ACTIVITIES</Link>           
@@ -15,6 +16,5 @@ export default function Navbar({token}){
             </Link>
         </div>
         </>
-
     )
 }
