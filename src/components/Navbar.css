@@ -1,0 +1,42 @@
+.bi-person-circle{
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.routine{
+    font-size: 27px;
+    /* display: flex; */
+    /* align-items: space-between; */
+    /* margin: 5px; */
+    padding: 5px;
+    text-decoration: none;
+    justify-content: flex-start;
+    order:inherit;
+    color: white;
+}
+
+.activity{
+    font-size: 27px;
+    /* display: flex; */
+    /* align-items: space-between; */
+    /* padding: 20px; */
+    margin: 5px;
+    text-decoration: none;
+    justify-content: flex-start;
+    order:inherit;
+    color: white;
+}
+
+.navbar{
+    box-shadow: 2px 2px 2px;
+    margin-left: -2px;
+    background-color: rgb(149, 9, 9);
+    text-decoration: none;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    padding: 0px;
+}

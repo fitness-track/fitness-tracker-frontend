@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom"
+import "./Navbar.css"
 // import { useState } from "react"
 
 export default function Navbar({token}){
@@ -6,11 +7,13 @@ export default function Navbar({token}){
 
     return(
         <>
-            <Link to="Routines">Routines</Link>
-            <br></br>
-            <Link to="Activities">Activities</Link>
-            <br></br>
-            <Link to="MyRoutines">Profile</Link>
+        <div class="navbar">
+            <Link to="Routines" class="routine"><i class="routine"></i>ROUTINES</Link>
+            <Link to="Activities" class="activity"><i class="activity"></i>ACTIVITIES</Link>           
+            <Link to="MyRoutines">
+                <i class="bi-person-circle"></i>
+            </Link>
+        </div>
         </>
 
     )

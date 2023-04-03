@@ -40,7 +40,7 @@ function App() {
   
   return(
     <>
-    <h1>Fitness Track</h1>
+    {/* <h1>Fitness Track</h1> */}
     {/* {
     <div>{
     routines.map((routine)=>{
