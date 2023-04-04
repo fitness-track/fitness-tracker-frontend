@@ -28,7 +28,7 @@ export function Register({setToken}) {
       //Again....if we choose to take this route for setVerifiedUser to use in a possible ternary function later
       setVerifiedUser(userName)
       //Do we want to navigate away from this page once they have registered? Perhaps to their profile or the main page.
-      navigate("/MyRoutines")
+      navigate(`/MyRoutines/${userName}`)
     }catch(error){
       console.log("There was an error during registration", error)
     }
@@ -36,7 +36,7 @@ export function Register({setToken}) {
 
   }
 
-  return (
+  return ( 
     <form onSubmit={(event) => registerUser(event)}>
       <input type="text" value={userName} onChange={(event)=>setUserName (event.target.value)} placeholder="Username"></input>
       <input type="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
