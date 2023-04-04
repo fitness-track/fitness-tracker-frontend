@@ -2,18 +2,29 @@ import {Link} from "react-router-dom"
 import "./Navbar.css"
 // import { useState } from "react"
 
-export default function Navbar({token}){
+export default function Navbar({token, setToken, userName, setUserName}){
     // const[ name, setName] = useState("")
+
+    function logout(){
+        localStorage.removeItem("token")
+        setToken("")
+        setUserName("")
+    }
 
     return(
         <>
 
         <div class="navbar">
-            <Link to="Routines" class="routine"><i class="routine"></i>ROUTINES</Link>
-            <Link to="Activities" class="activity"><i class="activity"></i>ACTIVITIES</Link>           
-            <Link to="MyRoutines">
-                <i class="bi-person-circle"></i>
-            </Link>
+            <Link to="Routines" className="routine"><i class="routine"></i>ROUTINES</Link>
+            <Link to="Activities" className="activity"><i class="activity"></i>ACTIVITIES</Link>           
+            {
+                token?
+                    <>
+                        <Link to={"MyRoutines/" + userName}>MY ROUTINES</Link>
+                        <a href="/" onClick={logout}>LOGOUT {userName}</a>
+            </>
+                : <Link to="Login" className="login">LOGIN / REGISTER</Link> 
+            }
         </div>
         </>
     )

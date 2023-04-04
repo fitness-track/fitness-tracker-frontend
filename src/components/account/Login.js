@@ -1,8 +1,7 @@
 import {useState} from "react"
 import {useNavigate, Link} from "react-router-dom"
 
-export function Login({setToken, token}) {
-  const [userName, setUserName]= useState('')
+export function Login({setToken, token, userName, setUserName}) {
   const [password, setPassword]= useState('')
   const [verifiedUser, setVerifiedUser]= useState('')
   const navigate = useNavigate()
@@ -41,7 +40,7 @@ export function Login({setToken, token}) {
       <input type="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
       <button type="submit">Login</button>
     </form>
-     <Link to="Register">Not Registered? Click Here!</Link>
+     <Link to="../Register">Not Registered? Click Here!</Link>
      </>
   )
 }

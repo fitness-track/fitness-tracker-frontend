@@ -135,7 +135,7 @@ export async function getRoutinesWithActivityIdAPI(activityId){
   }
 }
 
-export async function postRoutineAPI(token, routineName, goal, isPublic){
+export async function postRoutineAPI(token, name, goal, isPublic){
   const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/routines/"
 
   try {
@@ -147,7 +147,7 @@ export async function postRoutineAPI(token, routineName, goal, isPublic){
         'Authorization': bearer
       },
       body: JSON.stringify({
-        routineName: routineName,
+        name: name,
         goal: goal,
         isPublic: isPublic
       })

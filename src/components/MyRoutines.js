@@ -4,7 +4,7 @@ import { getRoutinesAPI, getUsernameRoutines, postRoutineAPI} from "../api"
 import Loading from "./Loading";
 import './Routines.css';
 
-export default function myRoutines({token}) {
+export default function MyRoutines({token}) {
   const [routines, setRoutines] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
   const [name, setName] = useState("")
@@ -12,8 +12,15 @@ export default function myRoutines({token}) {
   const [isPublic, setIsPublic] = useState(false)
   const {username} = useParams()
 
+  async function postRoutine(event){
+    event.preventDefault();
+    console.log(token, name, goal, isPublic)
+    const results = await postRoutineAPI(token, name, goal, isPublic)
+    console.log(results)
+  }
+
   useEffect(()=>{
-    async function getUserRoutines(){
+    async function getUserRoutines(event){      
       setIsLoading(true)
       console.log(token)
       console.log(username)
@@ -23,11 +30,12 @@ export default function myRoutines({token}) {
       setIsLoading(false)
     }
     getUserRoutines();
-  },[]);
+  },[username, token]);
 
   return(
-  <>
     isLoading?<Loading/>:
+    token?
+
 <section className="container text-center">
   <div className="wrapper">
     <div className="subWrapper">
@@ -78,20 +86,28 @@ export default function myRoutines({token}) {
       </div>
     </div>
   </div>
-</section>
+
 
 <div>
+<h3>Create a New Routine</h3>
+<form className='form' onSubmit={postRoutine}>
+    <input className="formField" type="text" value={name} onChange={(event)=>setName(event.target.value)} placeholder="Name"></input>
+    <input className="formField" type="text" value={goal} onChange={(event)=>setGoal(event.target.value)} placeholder="Goal"></input>
+    Is Public?
+    <input id='checkbox' type="checkbox" value={isPublic} onChange={()=>setIsPublic(!isPublic)} placeholder="Is this a public routine?"></input>
+    <button id='submitButton' type="submit">Submit Post</button>
+</form> 
+</div>
+
+{/* <div>
 <h3>Create a New Routine</h3>
 <form className='form' onSubmit={(event)=>postRoutineAPI(event)}>
     <input className="formField" type="text" value={name} onChange={(event)=>setName(event.target.value)} placeholder="Name"></input>
     <input className="formField" type="text" value={goal} onChange={(event)=>setGoal(event.target.value)} placeholder="Goal"></input>
     Is Public?
-    <input id='checkbox' type="checkbox" value={isPublic} onChange={()=>setDelivery(!isPublic)} placeholder="Is this a public routine?"></input>
+    <input id='checkbox' type="checkbox" value={isPublic} onChange={()=>setIsPublic(!isPublic)} placeholder="Is this a public routine?"></input>
     <button id='submitButton' type="submit">Submit Post</button>
 </form> 
-</div>
-</>
-
-
-
+</div> */}
+</section>:null
 )}

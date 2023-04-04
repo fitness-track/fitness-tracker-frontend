@@ -19,7 +19,7 @@
     color: white;
 }
 
-.activity{
+.activity {
     font-size: 27px;
     /* display: flex; */
     /* align-items: space-between; */
@@ -30,6 +30,19 @@
     order:inherit;
     color: white;
 }
+
+.login {
+    font-size: 27px;
+    /* display: flex; */
+    /* align-items: space-between; */
+    /* padding: 20px; */
+    margin: 5px;
+    text-decoration: none;
+    justify-content: flex-start;
+    order:inherit;
+    color: white;
+}
+
 
 .navbar{
     box-shadow: 2px 2px 2px;
