@@ -1,7 +1,7 @@
 import {useState} from "react"
-import {useNavigate} from "react-router-dom"
+import {useNavigate, Link} from "react-router-dom"
 
-export function Login({setToken}) {
+export function Login({setToken, token}) {
   const [userName, setUserName]= useState('')
   const [password, setPassword]= useState('')
   const [verifiedUser, setVerifiedUser]= useState('')
@@ -23,9 +23,10 @@ export function Login({setToken}) {
       let result = await response.json()
       setToken(result.token)
       localStorage.setItem("token", result.token)
+      console.log(token)
       //If we choose to take this route for setVerifiedUser
       setVerifiedUser(userName)
-      navigate("/MyRoutines")
+      navigate(`/MyRoutines/${userName}`)
     }catch(error){
       console.log("There was an error logging in", error)
     }
@@ -34,10 +35,13 @@ export function Login({setToken}) {
   }
 
   return (
+    <>
     <form onSubmit={(event) => loginUser(event)}>
       <input type="text" value={userName} onChange={(event)=>setUserName (event.target.value)} placeholder="Username"></input>
       <input type="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
       <button type="submit">Login</button>
     </form>
+     <Link to="Register">Not Registered? Click Here!</Link>
+     </>
   )
 }
