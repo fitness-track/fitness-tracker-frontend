@@ -18,12 +18,14 @@ import {Register} from './components/account/Register'
 
 export default function App() {
   const [token, setToken] = useState('')  
-  
+    
   return(
     <>
+
     <h1>Fitness Track</h1>
 
     {token? <div>logged in</div> : <div>not logged in</div>}
+    
       <Navbar token={token}/>
       {/* {token ? <button type="button" onClick={logout}>Logout</button> : null} */}
       <Routes>
@@ -32,7 +34,7 @@ export default function App() {
         <Route path="Routines" element={<Routines token={token}/>}></Route>
         <Route path="MyRoutines/:username" element={<MyRoutines token={token}/>}></Route>
         <Route path="Loading" element={<Loading/>}></Route>
-        <Route path="Activities/:activityId" element={<Activities/>}></Route>
+        <Route path="Activities" element={<Activities/>}></Route>
         <Route path="Register" element={<Register setToken={setToken}/>}></Route>
         <Route path="Login" element={<Login token={token} setToken={setToken}/>}></Route>
 

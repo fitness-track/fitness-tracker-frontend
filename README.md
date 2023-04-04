@@ -1,5 +1,5 @@
 # Fitness Track Frontend
-## Scrum Leader: David
+## Scrum Leader: Emma
 
 ## Setup:
 ### First:
@@ -7,8 +7,7 @@
 ### Second:
 `npm install`
 ### Finally:
-`npm start`
+`npm run start`
 
 ## Once complete:
-### `npm build` to build a folder for deployment
-
+### `npm run build` to build a folder for deployment
