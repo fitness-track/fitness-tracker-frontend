@@ -28,7 +28,7 @@ export default function Routines({token}) {
     return (
         routine.isPublic?
         <div className="col" key={"rId" + routine.id}>
-          <div className="card routinesCard text-bg-primary">
+          <div className="routinesCard">
             {/* <p>Routine ID: {routine.id}</p> */}
             {/* <p>Creator ID: {routine.creatorId}</p> */}
             {/* <p>isPublic: {routine.isPublic}</p> */}
@@ -47,14 +47,14 @@ export default function Routines({token}) {
                     <h2 className="accordion-header">
                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#rId" + routine.id + routineActivity.id} aria-expanded="true" aria-controls={"rId" + routine.id + routineActivity.id}>
                       {/* <p>Activity ID: {routineActivity.id}</p> */}
-                      Activity Name: {routineActivity.name}
+                      {routineActivity.name}
                     </button>                            
                     </h2>
                     <div id={"rId" + routine.id + routineActivity.id} className="accordion-collapse collapse" data-bs-parent={"#rId" + routine.id}>
                       <div className="accordion-body">
-                        <p><strong>Activity Description: {routineActivity.description}</strong></p>
-                        <p>Activity Duration: {routineActivity.duration}</p>
-                        <p>Activity Count.: {routineActivity.count}</p>
+                        <p><i class="bi bi-fire"></i> {routineActivity.description}</p>
+                        <p><i class="bi-stopwatch-fill"></i> {routineActivity.duration} mins</p>
+                        <p><i class="bi bi-repeat"></i> {routineActivity.count} reps</p>
                       </div>
                     </div>
                   </div>
@@ -66,7 +66,7 @@ export default function Routines({token}) {
               </div>
             </div>
             <div className="card-footer">
-            <h5><i className="bi bi-person-circle"></i>Created By: {routine.creatorName}</h5>
+            <h5 className="footer"><i className="bi-person-circle"></i>Created By: {routine.creatorName}</h5>
             </div>
           </div>
         </div>:null

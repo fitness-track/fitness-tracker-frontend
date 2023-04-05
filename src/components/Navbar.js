@@ -13,15 +13,16 @@ export default function Navbar({token, setToken, userName, setUserName}){
 
     return(
         <>
+    <div className="header">Fitness Track</div>
 
-        <div class="navbar">
-            <Link to="Routines" className="routine"><i class="routine"></i>ROUTINES</Link>
-            <Link to="Activities" className="activity"><i class="activity"></i>ACTIVITIES</Link>           
+        <div className="navbar">
+            <Link to="Routines" className="routine">ROUTINES</Link>
+            <Link to="Activities" className="activity">ACTIVITIES</Link>           
             {
                 token?
                     <>
-                        <Link to={"MyRoutines/" + userName}>MY ROUTINES</Link>
-                        <a href="/" onClick={logout}>LOGOUT {userName}</a>
+                        <Link to={"MyRoutines/" + userName} className="myRoutines">MY ROUTINES</Link>
+                        <a href="/" onClick={logout} className="logout">LOGOUT {userName}</a>
             </>
                 : <Link to="Login" className="login">LOGIN / REGISTER</Link> 
             }
