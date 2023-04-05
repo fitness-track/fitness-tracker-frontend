@@ -1,7 +1,7 @@
 import {useState} from "react"
 import {useNavigate, Link} from "react-router-dom"
 
-export function Login({setToken, token, userName, setUserName}) {
+export function Login({setToken, token, username, setUsername}) {
   const [password, setPassword]= useState('')
   const [verifiedUser, setVerifiedUser]= useState('')
   const navigate = useNavigate()
@@ -15,17 +15,21 @@ export function Login({setToken, token, userName, setUserName}) {
           'Content-Type':'application/json'
         },
         body: JSON.stringify({
-          username: userName,
+          username: username,
           password: password
         })
       });
       let result = await response.json()
       setToken(result.token)
+      setUsername(result.user.username)
       localStorage.setItem("token", result.token)
+      localStorage.setItem("username", result.user.username)
+
       console.log(token)
+      console.log(username)
       //If we choose to take this route for setVerifiedUser
-      setVerifiedUser(userName)
-      navigate(`/MyRoutines/${userName}`)
+      // setVerifiedUser(userName)
+      navigate(`/MyRoutines/${username}`)
     }catch(error){
       console.log("There was an error logging in", error)
     }
@@ -36,7 +40,7 @@ export function Login({setToken, token, userName, setUserName}) {
   return (
     <>
     <form onSubmit={(event) => loginUser(event)}>
-      <input type="text" value={userName} onChange={(event)=>setUserName (event.target.value)} placeholder="Username"></input>
+      <input type="text" value={username} onChange={(event)=>setUsername (event.target.value)} placeholder="Username"></input>
       <input type="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
       <button type="submit">Login</button>
     </form>

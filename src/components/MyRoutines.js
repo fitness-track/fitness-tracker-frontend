@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getRoutinesAPI, getUsernameRoutines, postRoutineAPI} from "../api"
+import { getRoutinesAPI, getUsernameRoutines, postRoutineAPI, deleteRoutineActivityById, deleteRoutineById} from "../api"
 import Loading from "./Loading";
 import './Routines.css';
 
-export default function MyRoutines({token}) {
+export default function MyRoutines({token, username}) {
   const [routines, setRoutines] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
   const [name, setName] = useState("")
   const [goal, setGoal] = useState("")
   const [isPublic, setIsPublic] = useState(false)
-  const {username} = useParams()
+  const [routineId, setRoutineId]=useState('')
+  // const {username} = useParams()
 
   async function postRoutine(event){
     event.preventDefault();
@@ -20,7 +21,7 @@ export default function MyRoutines({token}) {
   }
 
   useEffect(()=>{
-    if(token) {async function getUserRoutines(event){      
+    if(token && username) {async function getUserRoutines(event){      
       setIsLoading(true)
       console.log(token)
       console.log(username)
@@ -49,6 +50,29 @@ export default function MyRoutines({token}) {
             <div className="card-body">
               <h3>{routine.name}</h3>
               <h5>{routine.goal}</h5>
+              <div> 
+                <button
+                      onClick={() => {
+                        // setRoutineId(routine.id);
+                        deleteRoutineById(token,routine.id);
+                        console.log("Routine", routine.id, "deleted")
+                      }}
+                    >
+                      Edit Routine
+                </button>
+                <div> 
+                <button
+                      onClick={() => {
+                        // setRoutineId(routine.id);
+                        deleteRoutineById(token,routine.id);
+                        console.log("Routine", routine.id, "deleted")
+                      }}
+                    >
+                      Delete Routine
+                </button>
+              </div>
+              </div>
+              
               {
                 routine.activities.length>0?<p>This routine has <strong>{routine.activities.length}</strong> activities:</p>:<p>No activities assigned to this routine</p>
               }
