@@ -20,7 +20,7 @@ export default function MyRoutines({token}) {
   }
 
   useEffect(()=>{
-    async function getUserRoutines(event){      
+    if(token) {async function getUserRoutines(event){      
       setIsLoading(true)
       console.log(token)
       console.log(username)
@@ -29,7 +29,7 @@ export default function MyRoutines({token}) {
       setRoutines(response)
       setIsLoading(false)
     }
-    getUserRoutines();
+    getUserRoutines()};
   },[username, token]);
 
   return(
@@ -98,7 +98,6 @@ export default function MyRoutines({token}) {
     <button id='submitButton' type="submit">Submit Post</button>
 </form> 
 </div>
-
 {/* <div>
 <h3>Create a New Routine</h3>
 <form className='form' onSubmit={(event)=>postRoutineAPI(event)}>

@@ -14,9 +14,9 @@ export default function Navbar({token, setToken, userName, setUserName}){
     return(
         <>
 
-        <div class="navbar">
-            <Link to="Routines" className="routine"><i class="routine"></i>ROUTINES</Link>
-            <Link to="Activities" className="activity"><i class="activity"></i>ACTIVITIES</Link>           
+        <div className="navbar">
+            <Link to="Routines" className="routine"><i className="routine"></i>ROUTINES</Link>
+            <Link to="Activities" className="activity"><i className="activity"></i>ACTIVITIES</Link>           
             {
                 token?
                     <>
