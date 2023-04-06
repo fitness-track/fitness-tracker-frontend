@@ -78,12 +78,9 @@ export async function postActivityAPI(token, activityName, activityDescription){
       })
     });
     const results = await response.json();
-    if (!results.error){
-      return results;
-    } else {
-      throw (results.error)
-    }
-} catch(error) {
+    return results;
+    
+  } catch(error) {
     console.error (error);
   }
 }
