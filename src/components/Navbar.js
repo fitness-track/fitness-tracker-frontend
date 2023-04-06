@@ -2,13 +2,14 @@ import {Link} from "react-router-dom"
 import "./Navbar.css"
 // import { useState } from "react"
 
-export default function Navbar({token, setToken, userName, setUserName}){
+export default function Navbar({token, setToken, username, setUsername}){
     // const[ name, setName] = useState("")
 
     function logout(){
         localStorage.removeItem("token")
+        localStorage.removeItem("username")
         setToken("")
-        setUserName("")
+        setUsername("")
     }
 
     return(
@@ -23,6 +24,7 @@ export default function Navbar({token, setToken, userName, setUserName}){
                     <>
                         <Link to={"MyRoutines/" + userName} className="myRoutines">MY ROUTINES</Link>
                         <a href="/" onClick={logout} className="logout">LOGOUT {userName}</a>
+
             </>
                 : <Link to="Login" className="login">LOGIN / REGISTER</Link> 
             }

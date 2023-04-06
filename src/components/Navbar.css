@@ -31,6 +31,31 @@
 
 }
 
+.logout {
+    font-size: 27px;
+    /* display: flex; */
+    /* align-items: space-between; */
+    /* padding: 20px; */
+    margin: 5px;
+    text-decoration: none;
+    justify-content: flex-start;
+    order:inherit;
+    color: white;
+}
+
+.myroutines {
+    font-size: 27px;
+    /* display: flex; */
+    /* align-items: space-between; */
+    /* padding: 20px; */
+    margin: 5px;
+    text-decoration: none;
+    justify-content: flex-start;
+    order:inherit;
+    color: white;
+}
+
+
 .login {
     font-size: 27px;
     margin: 5px;
