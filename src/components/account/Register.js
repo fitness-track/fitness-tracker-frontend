@@ -2,7 +2,7 @@ import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
 export function Register({setToken}) {
-  const [userName, setUserName]= useState('')
+  const [username, setUsername]= useState('')
   const [password, setPassword]= useState('')
   const [verifiedUser, setVerifiedUser]= useState('')
   const navigate = useNavigate()
@@ -16,7 +16,7 @@ export function Register({setToken}) {
           'Content-Type':'application/json'
         },
         body: JSON.stringify({
-          username: userName,
+          username: username,
           password: password
         })
       });
@@ -26,9 +26,9 @@ export function Register({setToken}) {
       setToken(result.token)
       localStorage.setItem("token", result.token)
       //Again....if we choose to take this route for setVerifiedUser to use in a possible ternary function later
-      setVerifiedUser(userName)
+      setVerifiedUser(username)
       //Do we want to navigate away from this page once they have registered? Perhaps to their profile or the main page.
-      navigate(`/MyRoutines/${userName}`)
+      navigate(`/MyRoutines/${username}`)
     }catch(error){
       console.log("There was an error during registration", error)
     }
@@ -38,7 +38,7 @@ export function Register({setToken}) {
 
   return ( 
     <form onSubmit={(event) => registerUser(event)}>
-      <input type="text" value={userName} onChange={(event)=>setUserName (event.target.value)} placeholder="Username"></input>
+      <input type="text" value={username} onChange={(event)=>setUsername (event.target.value)} placeholder="Username"></input>
       <input type="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
       <button type="submit">Register</button>
     </form>
