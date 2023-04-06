@@ -19,6 +19,7 @@ export default function MyRoutines({token, username}) {
   // const {username} = useParams()
 
   async function postRoutine(event){
+    event.preventDefault()
     console.log(token, name, goal, isPublic)
     const results = await postRoutineAPI(token, name, goal, isPublic)
     console.log(results)
@@ -132,21 +133,23 @@ export default function MyRoutines({token, username}) {
                     >
                       Delete Routine
                 </button>
-                <button
+                {/* <button
                       onClick={() => {
                         
                       }}
                     >
                       Add Activity
-                </button>
+                </button> */}
               
               </div>
-              <form className='form' onSubmit={postActivityToRoutineAPI}>
+              <form className='form' onSubmit={(event)=>postActivityToRoutineAPI(token, routineId, activityId,count, duration)}>
                 <select onChange={(event)=>setActivityId(event.target.value)}>{activities.map((activity)=>{
                   return <option value={activity.id}>{activity.name}</option>;})}</select>
+                  {console.log(token,routineId,activityId)}
                 <input className="formField" type="text" value={count} onChange={(event)=>setCount(event.target.value)} placeholder="Count"></input>
                 <input className="formField" type="text" value={duration} onChange={(event)=>setDuration(event.target.value)} placeholder="Duration"></input>
                 <button id='submitButton' type="submit">Add Activity</button>
+                {console.log(token,routineId,activityId,count,duration)}
               </form> 
             </div>
           </div>
