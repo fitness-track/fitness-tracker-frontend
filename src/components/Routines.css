@@ -1,14 +1,9 @@
-.wrapper{
- 
-}
-
-.subWrapper{
- 
-}
-
 .routinesCard{
-  margin-bottom: 15px;
-  box-shadow: 3px 3px 7px 0px gray;
+  margin-top: 50px;
+  box-shadow: 3px 2px 4px rgb(87, 85, 85);
+  background-color: rgb(42, 39, 39);
+  color: lightgrey;
+  border-radius: 25px;
 }
 
 .activityCard{
@@ -18,3 +13,17 @@
 .bi-person-circle{
   margin-right: 7px;
 }
+
+.card-body, .card-footer{
+  background-color: rgb(42, 39, 39);
+  border-radius: 25px;
+}
+
+.h5{
+  border-radius:25px;
+}
+/* .routinesCard{
+  margin-bottom: 15px;
+  box-shadow: 3px 3px 7px 0px gray;
+  background-color: darkgray;
+} */

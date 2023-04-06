@@ -1,13 +1,26 @@
-.wrapper{
- 
-}
-
-.subWrapper{
- 
-}
-
 .actCard{
   margin-bottom: 15px;
+  color: lightgrey;
   /* height: 200px; */
-  box-shadow: 3px 3px 7px 0px gray;
 }
+
+.card-body{
+  margin-top: 25px;
+  box-shadow: 3px 2px 4px rgb(87, 85, 85);
+  background-color: rgb(42, 39, 39);
+  color: lightgrey;
+  border-radius: 25px;
+}
+
+.card{
+  border:none;
+  margin-top: 10px;
+  background-color: rgb(57, 55, 55);
+}
+/* .col{
+  margin-top: 50px;
+  box-shadow: 3px 2px 4px rgb(87, 85, 85);
+  background-color: rgb(42, 39, 39);
+  color: lightgrey;
+  border-radius: 25px;
+} */

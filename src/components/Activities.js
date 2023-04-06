@@ -28,10 +28,10 @@ export default function Activities({token}) {
     activities?.map((activity)=>{
       return(
         <div className="col">
-          <div className="card text-bg-primary actCard" key={"aId" + activity.id}>
+          <div className="card" key={"aId" + activity.id}>
             <div className="card-body">
-            <i className="bi bi-lightning-charge-fill"/><strong> {activity.name}</strong> 
-            <p><i className="bi bi-info-circle"/> {activity.description}</p>
+            <i className=""/><strong> {activity.name}</strong> 
+            <p><i className=""/> {activity.description}</p>
             </div>          
           </div>
         </div>

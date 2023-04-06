@@ -29,10 +29,6 @@ export default function App() {
 
   return(
     <>
-
-    <h1>Fitness Track</h1>
-
-    {/* {token? <div>logged in</div> : <div>not logged in</div>} */}
     
       <Navbar token={token} setToken={setToken} username={username} setUsername={setUsername}/>
       {/* {token ? <button type="button" onClick={logout}>Logout</button> : null} */}
