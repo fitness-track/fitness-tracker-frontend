@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getRoutinesAPI, getUsernameRoutines, postRoutineAPI, deleteRoutineActivityById, deleteRoutineById} from "../api"
+import Popup from "reactjs-popup";
+import { getRoutinesAPI, getUsernameRoutines, postRoutineAPI, deleteRoutineActivityById, deleteRoutineById, patchRoutineByIdAPI, getActivitiesAPI, postActivityToRoutineAPI} from "../api"
 import Loading from "./Loading";
 import './Routines.css';
+import './MyRoutines.css'
 
 export default function MyRoutines({token, username}) {
   const [routines, setRoutines] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
   const [name, setName] = useState("")
   const [goal, setGoal] = useState("")
+  const [count,setCount]= useState("")
+  const [activities, setActivities] = useState([]);
+  const [duration, setDuration]= useState("")
   const [isPublic, setIsPublic] = useState(false)
-  const [routineId, setRoutineId]=useState('')
+  const [routineId, setRoutineId]=useState("")
+  const [ activityId, setActivityId]= useState("")
   // const {username} = useParams()
 
   async function postRoutine(event){
@@ -33,6 +38,17 @@ export default function MyRoutines({token, username}) {
     }
     getUserRoutines()};
   },[token,username]);
+
+  useEffect(()=>{
+    async function getActivities(){
+      setIsLoading(true)
+      const response = await getActivitiesAPI()
+      console.log(response)
+      setActivities(response)
+      setIsLoading(false)
+    }
+    getActivities();
+  },[]);
 
   return(
     isLoading?<Loading/>:
@@ -82,15 +98,31 @@ export default function MyRoutines({token, username}) {
                 </div>
               </div>
                <div> 
-                <button
-                      onClick={() => {
-                        // setRoutineId(routine.id);
-                        deleteRoutineById(token,routine.id);
-                        console.log("Routine", routine.id, "deleted")
-                      }}
-                    >
-                      Edit Routine
-                </button>
+               <Popup id='popUp' trigger={<button>Edit</button>}modal nested>
+                        {
+                            close => (
+                                <div className='modal'>
+                                    <div className='content'>
+                                        Edit your post
+                                    </div>
+                                    
+                                    <form onSubmit={(event)=>patchRoutineByIdAPI(token, routineId, event)}>
+                                        <input type="text" value={name} onChange={(event)=>setName(event.target.value)} placeholder={`${routine.name}`}/>
+                                        {console.log(routine.name)}
+                                        <input type="text" value={goal} onChange={(event)=>setGoal(event.target.value)}placeholder={`${routine.goal}`}/>
+                                        {/* Is Public?
+                                        <input type="checkbox" value={isPublic} onChange={()=>setisPublic(!delivery)} placeholder="Will Deliver? true or false"></input> */}
+                                        <button type="submit">Edit Post</button>
+                                    </form>
+                                    
+                                    <button onClick=
+                                            {() => close()}>
+                                                Close
+                                    </button> 
+                                </div>
+                            )
+                        }
+                    </Popup>
                 <button
                       onClick={() => {
                         // setRoutineId(routine.id);
@@ -109,6 +141,13 @@ export default function MyRoutines({token, username}) {
                 </button>
               
               </div>
+              <form className='form' onSubmit={postActivityToRoutineAPI}>
+                <select onChange={(event)=>setActivityId(event.target.value)}>{activities.map((activity)=>{
+                  return <option value={activity.id}>{activity.name}</option>;})}</select>
+                <input className="formField" type="text" value={count} onChange={(event)=>setCount(event.target.value)} placeholder="Count"></input>
+                <input className="formField" type="text" value={duration} onChange={(event)=>setDuration(event.target.value)} placeholder="Duration"></input>
+                <button id='submitButton' type="submit">Add Activity</button>
+              </form> 
             </div>
           </div>
         </div>

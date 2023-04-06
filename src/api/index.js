@@ -175,7 +175,7 @@ export async function patchRoutineByIdAPI(token, routineId, routineName, goal, i
         'Authorization': bearer
       },
       body: JSON.stringify({
-        routineName: routineName,
+        name: routineName,
         goal: goal,
         isPublic: isPublic
       })
