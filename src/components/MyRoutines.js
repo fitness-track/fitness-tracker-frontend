@@ -14,10 +14,11 @@ export default function MyRoutines({token, username}) {
   // const {username} = useParams()
 
   async function postRoutine(event){
-    event.preventDefault();
     console.log(token, name, goal, isPublic)
     const results = await postRoutineAPI(token, name, goal, isPublic)
     console.log(results)
+    setGoal("")
+    setName("")
   }
 
   useEffect(()=>{
@@ -31,7 +32,7 @@ export default function MyRoutines({token, username}) {
       setIsLoading(false)
     }
     getUserRoutines()};
-  },[username, token]);
+  },[token,username]);
 
   return(
     isLoading?<Loading/>:
@@ -50,28 +51,7 @@ export default function MyRoutines({token, username}) {
             <div className="card-body">
               <h3>{routine.name}</h3>
               <h5>{routine.goal}</h5>
-              <div> 
-                <button
-                      onClick={() => {
-                        // setRoutineId(routine.id);
-                        deleteRoutineById(token,routine.id);
-                        console.log("Routine", routine.id, "deleted")
-                      }}
-                    >
-                      Edit Routine
-                </button>
-                <div> 
-                <button
-                      onClick={() => {
-                        // setRoutineId(routine.id);
-                        deleteRoutineById(token,routine.id);
-                        console.log("Routine", routine.id, "deleted")
-                      }}
-                    >
-                      Delete Routine
-                </button>
-              </div>
-              </div>
+          
               
               {
                 routine.activities.length>0?<p>This routine has <strong>{routine.activities.length}</strong> activities:</p>:<p>No activities assigned to this routine</p>
@@ -100,6 +80,34 @@ export default function MyRoutines({token, username}) {
                 }
 
                 </div>
+              </div>
+               <div> 
+                <button
+                      onClick={() => {
+                        // setRoutineId(routine.id);
+                        deleteRoutineById(token,routine.id);
+                        console.log("Routine", routine.id, "deleted")
+                      }}
+                    >
+                      Edit Routine
+                </button>
+                <button
+                      onClick={() => {
+                        // setRoutineId(routine.id);
+                        deleteRoutineById(token,routine.id);
+                        console.log("Routine", routine.id, "deleted")
+                      }}
+                    >
+                      Delete Routine
+                </button>
+                <button
+                      onClick={() => {
+                        
+                      }}
+                    >
+                      Add Activity
+                </button>
+              
               </div>
             </div>
           </div>

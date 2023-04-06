@@ -40,7 +40,7 @@ export function Login({setToken, token, username, setUsername}) {
   return (
     <>
     <form onSubmit={(event) => loginUser(event)}>
-      <input type="text" value={username} onChange={(event)=>setUsername (event.target.value)} placeholder="Username"></input>
+      <input type="text" onChange={(event)=>setUsername (event.target.value)} placeholder="Username"></input>
       <input type="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
       <button type="submit">Login</button>
     </form>

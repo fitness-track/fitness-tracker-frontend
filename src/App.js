@@ -18,7 +18,7 @@ import {Register} from './components/account/Register'
 
 export default function App() {
   const [token, setToken] = useState('')
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState(localStorage.getItem("username"))
     
   useEffect(()=>{
     let savedToken = localStorage.getItem("token")
