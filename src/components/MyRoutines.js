@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Popup from "reactjs-popup";
+// import Popup from "reactjs-popup";
 import { getRoutinesAPI, getUsernameRoutines, postRoutineAPI, deleteRoutineActivityById, deleteRoutineById, patchRoutineByIdAPI, getActivitiesAPI, postActivityToRoutineAPI, patchRoutineActivityByIdAPI} from "../api"
 import Loading from "./Loading";
 import './Loading';
+import './Routines.css'
 
 export default function MyRoutines({token, username}) {
   const [routines, setRoutines] = useState([]);
@@ -66,13 +67,13 @@ async function postActivityToRoutine(event){
   routines?.map((routine)=>{
     return (
         <div className="col">
-          <div className="card routinesCard text-bg-primary" key={"rId" + routine.id}>
+          <div className="card routinesCard" key={"rId" + routine.id}>
             <p>Routine ID: {routine.id}</p>
             <div className="card-body">
               <h3>{routine.name}</h3>
               <h5>{routine.goal}</h5>
               <Link to={`../../EditRoutine/${routine.id}/${routine.name}/${routine.goal}`}>
-                <button type="button" className="btn btn-primary" data-toggle="tooltip" title="Edit Routine"><i className="bi bi-scissors"></i></button>
+                  <button type="button" className="button" data-toggle="tooltip" title="Edit Routine"><i className="bi-scissors"></i> Edit</button>
               </Link>
           
               <div className="card activityCard text-bg-secondary mb-3 overflow-auto">
