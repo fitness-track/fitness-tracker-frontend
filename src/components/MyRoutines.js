@@ -91,6 +91,7 @@ async function postActivityToRoutine(event){
                         <p><strong>Activity Description: {routineActivity.description}</strong></p>
                         <p>Activity Duration: {routineActivity.duration}</p>
                         <p>Activity Count.: {routineActivity.count}</p>
+                        <button>Remove Activity</button>
                       </div>
                     </div>
                   
