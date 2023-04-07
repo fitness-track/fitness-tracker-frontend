@@ -40,12 +40,17 @@ export function Login({setToken, token, username, setUsername}) {
 
   return (
     <>
-    <form onSubmit={(event) => loginUser(event)}>
-      <input type="text" onChange={(event)=>setUsername (event.target.value)} placeholder="Username"></input>
-      <input type="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
-      <button type="submit">Login</button>
+    <form action="action_page.php" className="loginForm" onSubmit={(event) => loginUser(event)}>
+      <div className="container">
+      <input type="text" className="username" onChange={(event)=>setUsername (event.target.value)} placeholder="Username" required></input>
+     <br></br>
+      <input type="password" className="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password" required></input>
+      <br></br>
+      <button className="submit" type="submit">Login</button>
+      <br></br>
+     <Link className="link" to="../Register">Not Registered? Click Here!</Link>
+      </div>
     </form>
-     <Link to="../Register">Not Registered? Click Here!</Link>
      </>
   )
 }

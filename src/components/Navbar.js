@@ -22,8 +22,8 @@ export default function Navbar({token, setToken, username, setUsername}){
             {
                 token?
                     <>
-                        <Link to={"MyRoutines/" + userName} className="myRoutines">MY ROUTINES</Link>
-                        <a href="/" onClick={logout} className="logout">LOGOUT {userName}</a>
+                        <Link to={"MyRoutines/" + username} className="myRoutines">MY ROUTINES</Link>
+                        <a href="/" onClick={logout} className="logout">LOGOUT {username}</a>
 
             </>
                 : <Link to="Login" className="login">LOGIN / REGISTER</Link> 
