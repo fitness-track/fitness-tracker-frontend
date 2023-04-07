@@ -26,3 +26,13 @@ padding: 20px;
     color: rgb(63, 119, 168);
     font-size: larger;
 }
+
+.checkBox{
+    width: 40px;
+    height: 40px;
+    margin-left: 4%;
+}
+
+.h3, .h5{
+    color: lightgray;
+}
