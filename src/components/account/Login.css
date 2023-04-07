@@ -1,0 +1,38 @@
+.container{
+padding: 20px;
+} 
+
+.username, .password{
+    width: 100%;
+    float: left;
+    padding: 12px 20px;
+    margin: 18px 0;
+    display: inline-block;
+    box-sizing: border;
+}
+
+.submit{
+    width: 100%;
+    float: left;
+    padding: 12px 20px;
+    margin: 18px 0;
+    display: inline-block;
+    box-sizing: border;
+    background-color: lightgray;
+    border-color: rgb(126, 119, 119);
+}
+
+.link{
+    color: rgb(63, 119, 168);
+    font-size: larger;
+}
+
+.checkBox{
+    width: 40px;
+    height: 40px;
+    margin-left: 4%;
+}
+
+.h3, .h5{
+    color: lightgray;
+}

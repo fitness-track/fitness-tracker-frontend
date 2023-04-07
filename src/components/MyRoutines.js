@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 import { getRoutinesAPI, getUsernameRoutines, postRoutineAPI, deleteRoutineActivityById, deleteRoutineById, patchRoutineByIdAPI, getActivitiesAPI, postActivityToRoutineAPI, patchRoutineActivityByIdAPI} from "../api"
 import Loading from "./Loading";
-import './Routines.css';
-// import './MyRoutines.css'
+import './Loading';
+
 export default function MyRoutines({token, username}) {
   const [routines, setRoutines] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
@@ -118,14 +118,17 @@ async function postActivityToRoutine(event){
     </div>
   </div>
 <div>
-<h3>Create a New Routine</h3>
+<h3 className="h3">Create a New Routine</h3>
 <form className='form' onSubmit={postRoutine}>
-    <input className="formField" type="text" value={name} onChange={(event)=>setName(event.target.value)} placeholder="Name"></input>
-    <input className="formField" type="text" value={goal} onChange={(event)=>setGoal(event.target.value)} placeholder="Goal"></input>
-    Is Public?
-    <input id='checkbox' type="checkbox" value={isPublic} onChange={()=>setIsPublic(!isPublic)} placeholder="Is this a public routine?"></input>
-    <button id='submitButton' type="submit">Submit Post</button>
-</form>
+    <div className="container">
+    <input className="username" type="text" value={name} onChange={(event)=>setName(event.target.value)} placeholder="Name"></input>
+    <input className="password" type="text" value={goal} onChange={(event)=>setGoal(event.target.value)} placeholder="Goal"></input>
+    <input className="checkBox" type="checkbox" value={isPublic} onChange={()=>setIsPublic(!isPublic)}></input>
+    <h5 className="h5">Public?</h5>
+    <button className="submit" id='submitButton' type="submit">Submit Post</button>
+    </div>
+</form> 
+
 </div>
 {/* <div>
 <h3>Create a New Routine</h3>
