@@ -2,16 +2,20 @@ import { useState } from "react";
 import { useParams } from "react-router-dom"
 import {patchRoutineActivityByIdAPI, deleteRoutineActivityById} from "../api"
 
-export default function EditRoutineActivity({token}) {
+export default function EditRoutineActivity({token, setFooterMessage}) {
   const {routineActivityId, activityDuration, activityCount} = useParams();
   const[duration, setDuration] = useState('');
   const[count, setCount] = useState('');
 
   async function editRoutineActivity(event){
     event.preventDefault()
+    setFooterMessage('')
     console.log(routineActivityId,duration, count)
     const results = await patchRoutineActivityByIdAPI(token, routineActivityId, count, duration)
     console.log(results)
+    if (results.id){
+      setFooterMessage("Succes-Edited-Routine-Activity")
+    }
   }
 
   return(

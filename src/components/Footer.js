@@ -71,12 +71,62 @@ export default function Footer({footerMessage}){
                 </div>
             </div>
         </nav>:
+        footerMessage=="Succes-Edited-Routine-Activity"?
+        <nav className="sticky-bottom bg-body-tertiary">
+            <div className="container-fluid">
+                <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
+                    <h3><i className="bi bi-check-circle-fill"></i> <strong> Routine Activity Updated!</strong></h3>
+                    Time to try out your new routine!
+                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </nav>:
+        footerMessage=="Success-Created-New-Routine"?
+        <nav className="sticky-bottom bg-body-tertiary">
+            <div className="container-fluid">
+                <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
+                    <h3><i className="bi bi-check-circle-fill"></i> <strong> Routine Created!</strong></h3>
+                    Think about adding some activities now!
+                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </nav>:
+        footerMessage=="Success-Added-Activity-To-Routine"?
+        <nav className="sticky-bottom bg-body-tertiary">
+            <div className="container-fluid">
+                <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
+                    <h3><i className="bi bi-check-circle-fill"></i> <strong> Activity Added!</strong></h3>
+                    Get to it! Time to get that heart pumping!
+                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </nav>:
       footerMessage=="Success-New-Activity"?
       <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
                   <h3><i className="bi bi-check-circle-fill"></i> <strong> New activity created!</strong></h3>
                   It's ready for you to add to your routine!
+                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          </div>
+      </nav>:
+      footerMessage=="Success-Edited-Routine"?
+      <nav className="sticky-bottom bg-body-tertiary">
+          <div className="container-fluid">
+              <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
+                  <h3><i className="bi bi-check-circle-fill"></i> <strong> Routine Edited!</strong></h3>
+                  Have a good workout!
+                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          </div>
+      </nav>:
+      footerMessage=="Success-Deleted-Routine"?
+      <nav className="sticky-bottom bg-body-tertiary">
+          <div className="container-fluid">
+              <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
+                  <h3><i className="bi bi-check-circle-fill"></i> <strong> Routine Deleted!</strong></h3>
+                  Sorry to see it go!
                   <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
           </div>
@@ -101,5 +151,6 @@ export default function Footer({footerMessage}){
                   </div>
               </div>
           </nav>:null
+          
   )
 }

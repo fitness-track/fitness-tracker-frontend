@@ -6,7 +6,7 @@ import Loading from "./Loading";
 import './Loading';
 import './Routines.css'
 
-export default function MyRoutines({token, username}) {
+export default function MyRoutines({token, username, setFooterMessage}) {
   const [routines, setRoutines] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
   const [name, setName] = useState("")
@@ -21,9 +21,13 @@ export default function MyRoutines({token, username}) {
   // const {username} = useParams()
   async function postRoutine(event){
     event.preventDefault()
+    setFooterMessage("")
     console.log(token, name, goal, isPublic)
     const results = await postRoutineAPI(token, name, goal, isPublic)
     console.log(results)
+    if (results.id){
+      setFooterMessage("Success-Created-New-Routine")
+    }
     setGoal("")
     setName("")
   }
