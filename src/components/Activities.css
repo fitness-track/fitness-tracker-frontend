@@ -29,6 +29,13 @@
   text-emphasis: 30px;
 }
 
+
+.new-activity{
+  width: 250px;
+  border: 3px inset #121212;
+}
+
+
 /* .col{
   margin-top: 50px;
   box-shadow: 3px 2px 4px rgb(87, 85, 85);

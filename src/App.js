@@ -8,7 +8,8 @@ import{
   MyRoutines,
   Navbar,
   Routines,
-  Error
+  Error,
+  EditRoutine
 } from './components'
 
 
@@ -19,6 +20,7 @@ import {Register} from './components/account/Register'
 export default function App() {
   const [token, setToken] = useState('')
   const [username, setUsername] = useState(localStorage.getItem("username"))
+  const [footerMessage, setFooterMessage] = useState("")
     
   useEffect(()=>{
     let savedToken = localStorage.getItem("token")
@@ -38,12 +40,13 @@ export default function App() {
         <Route path="Routines" element={<Routines token={token}/>}></Route>
         <Route path={"MyRoutines/" + username} element={<MyRoutines token={token} username={username}/>}></Route>
         <Route path="Loading" element={<Loading/>}></Route>
-        <Route path="Activities" element={<Activities/>}></Route>
-        <Route path="Register" element={<Register setToken={setToken}/>}></Route>
-        <Route path="Login" element={<Login token={token} setToken={setToken} username={username} setUsername={setUsername}/>}></Route>
+        <Route path="Activities" element={<Activities token={token} setFooterMessage={setFooterMessage}/>}></Route>
+        <Route path="Register" element={<Register setToken={setToken} setFooterMessage={setFooterMessage}/>}></Route>
+        <Route path="Login" element={<Login token={token} setToken={setToken} username={username} setUsername={setUsername} setFooterMessage={setFooterMessage}/>}></Route>
+        <Route path="EditRoutine/:routineId/:routineName/:routineGoal" element={<EditRoutine token={token}/>}></Route>
 
       </Routes>
     
-     <Footer/>
+     <Footer footerMessage={footerMessage}/>
   </>
 )}

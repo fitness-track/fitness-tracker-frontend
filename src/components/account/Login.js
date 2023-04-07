@@ -2,13 +2,13 @@ import {useState} from "react"
 import {useNavigate, Link} from "react-router-dom"
 import './Login.css';
 
-export function Login({setToken, token, username, setUsername}) {
+export function Login({setToken, token, username, setUsername, setFooterMessage}) {
   const [password, setPassword]= useState('')
-  const [verifiedUser, setVerifiedUser]= useState('')
   const navigate = useNavigate()
 
   async function loginUser(event){
     event.preventDefault()
+    setFooterMessage("")
     try{
       const response = await fetch ('https://fitnesstrac-kr.herokuapp.com/api/users/login',{
         method:"POST",
@@ -21,17 +21,24 @@ export function Login({setToken, token, username, setUsername}) {
         })
       });
       let result = await response.json()
-      setToken(result.token)
-      setUsername(result.user.username)
-      localStorage.setItem("token", result.token)
-      localStorage.setItem("username", result.user.username)
 
-      console.log(token)
-      console.log(username)
+      if (result.name=="IncorrectCredentialsError"){
+        setFooterMessage("Error-Login-Credentials")
+      }
+
+      if (result.token){
+        setFooterMessage("Success-Login")
+        setToken(result.token)
+        setUsername(result.user.username)
+        localStorage.setItem("token", result.token)
+        localStorage.setItem("username", result.user.username)
+        navigate(`/MyRoutines/${username}`)
+      }
+
       //If we choose to take this route for setVerifiedUser
       // setVerifiedUser(userName)
-      navigate(`/MyRoutines/${username}`)
     }catch(error){
+      setFooterMessage("Error-Login-Other")
       console.log("There was an error logging in", error)
     }
 
