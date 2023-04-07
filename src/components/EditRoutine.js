@@ -37,6 +37,8 @@ async function addActivityToRoutine(event){
   if (response.id){
     setFooterMessage("Success-Added-Activity-To-Routine")
   }
+  setCount("")
+  setDuration("")
 }
 
 async function editRoutine(event){
