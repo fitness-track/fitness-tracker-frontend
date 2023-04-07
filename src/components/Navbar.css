@@ -1,104 +1,24 @@
-.routine{
-    font-size: 27px;
-    margin: 5px;
-    padding-left: 3px;
-    text-decoration: none;
-    justify-content: flex-start;
-    order:inherit;
-    color: white;
-    display: flex;
-}
 
-.activity {
-    font-size: 27px;
-    margin: 5px;
-    text-decoration: none;
-    justify-content: flex-start;
-    order:inherit;
-    color: white;
-    display: flex;
-
-}
-
-.myRoutines {
-    font-size: 27px;
-    margin: 5px;
-    text-decoration: none;
-    justify-content: flex-start;
-    order:inherit;
-    color: white;
-    display: flex;
-
-}
-
-.logout {
-    font-size: 27px;
-    /* display: flex; */
-    /* align-items: space-between; */
-    /* padding: 20px; */
-    margin: 5px;
-    text-decoration: none;
-    justify-content: flex-start;
-    order:inherit;
-    color: white;
-}
-
-.myroutines {
-    font-size: 27px;
-    /* display: flex; */
-    /* align-items: space-between; */
-    /* padding: 20px; */
-    margin: 5px;
-    text-decoration: none;
-    justify-content: flex-start;
-    order:inherit;
-    color: white;
-}
-
-
-.login {
-    font-size: 27px;
-    margin: 5px;
-    text-decoration: none;
-    justify-content: flex-start;
-    order:inherit;
-    color: white;
-    display: flex;
-
-}
-
-.logout {
-    font-size: 27px;
-    margin: 5px;
-    padding-right: 3px;
-    text-decoration: none;
-    justify-content: flex-end;
-    order:inherit;
-    color: white;
-    display: flex;
-
-}
-
-
-.navbar{
-    box-shadow: 0px 3px 3px  rgb(105, 102, 102);
-    margin-left: -2px;
-    background-color: rgb(42, 39, 39);
-    text-decoration: none;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    padding: 0px;
-    display: flex;
-    margin-top: none;
-    padding-top: none;
-    /* position: fixed; */
+.second-word{
+    font-family: 'Fira Code', monospace;
 }
 
 .header{
+    font-family: 'Montserrat', sans-serif;
     font-size: 35px;
-    color: white;
-    background-color: rgb(42,39,39);
-    margin-bottom: none;
-    padding-bottom: none;
     padding-left: 5px;
+}
+
+.header-navbar{
+    background-color: rgb(42,39,39);
+    font-size: 27px;
+}
+ 
+.header-navbar a{
+    text-decoration: none;
+    color: white;
+}
+
+.header-navbar a:hover{
+    color: #ccc;
 }
