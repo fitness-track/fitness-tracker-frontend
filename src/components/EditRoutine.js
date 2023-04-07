@@ -33,6 +33,8 @@ async function addActivityToRoutine(event){
   console.log(routineId, activityId, count, duration)
   const response = await postActivityToRoutineAPI(routineId, activityId, count, duration)
   console.log(response)
+  setCount("")
+  setDuration("")
 }
 
 async function editRoutine(event){
