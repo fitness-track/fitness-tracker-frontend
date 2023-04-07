@@ -9,7 +9,9 @@ import{
   Navbar,
   Routines,
   Error,
-  EditRoutine
+  EditRoutine,
+  EditRoutineActivity
+  
 } from './components'
 
 
@@ -44,7 +46,7 @@ export default function App() {
         <Route path="Register" element={<Register setToken={setToken} setFooterMessage={setFooterMessage}/>}></Route>
         <Route path="Login" element={<Login token={token} setToken={setToken} username={username} setUsername={setUsername} setFooterMessage={setFooterMessage}/>}></Route>
         <Route path="EditRoutine/:routineId/:routineName/:routineGoal" element={<EditRoutine token={token}/>}></Route>
-        {/* <Route path="EditActivity/:activityId/:count/:duration" element={<EditActivity token={token}/>}></Route> */}
+        <Route path="EditRoutineActivity/:routineActivityId/:activityDuration/:activityCount" element={<EditRoutineActivity token={token}/>}></Route>
 
       </Routes>
     
