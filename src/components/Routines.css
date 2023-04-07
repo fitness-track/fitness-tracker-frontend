@@ -1,5 +1,5 @@
 .routinesCard{
-  margin-top: 50px;
+  margin-top: 20px;
   box-shadow: 3px 2px 4px rgb(87, 85, 85);
   background-color: rgb(42, 39, 39);
   color: lightgrey;
@@ -26,5 +26,10 @@
 .footer{
   border-radius: 25px;
   height:fit-content;
+  padding-bottom: 10px;
 }
 
+
+.filter-link{
+  color: white;
+}

@@ -22,11 +22,6 @@ padding: 20px;
     border-color: rgb(126, 119, 119);
 }
 
-.link{
-    color: rgb(63, 119, 168);
-    font-size: larger;
-}
-
 .checkBox{
     width: 40px;
     height: 40px;
@@ -35,4 +30,34 @@ padding: 20px;
 
 .h3, .h5{
     color: lightgray;
+}
+
+.registration-link{
+    height: 160px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+}
+
+.registration-link a {
+    color: white;
+    text-decoration: none;
+}
+
+.registration-link a:hover{
+    color: #ccc;
+    text-decoration: none;
+}
+
+.login-logo{
+    height: 60vh;
+    box-shadow: 5px 5px 15px 1px black;
+}
+
+.login-form{
+    background-color: #ccc;
+    box-shadow: 5px 5px 15px 1px black;
+}
+
+.login-frame{
+    width: 900px;
 }

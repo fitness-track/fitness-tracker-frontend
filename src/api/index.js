@@ -206,16 +206,16 @@ export async function deleteRoutineById(token, routineId){
   }
 }
 
-export async function postActivityToRoutineAPI(token, routineId, activityId, count, duration){
+export async function postActivityToRoutineAPI(routineId, activityId, count, duration){
   const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/routines/"
 
   try {
-    const bearer = "Bearer " + token
-    const response = await fetch(APIURL + routineId | "/activities", {
+    // const bearer = "Bearer " + token
+    const response = await fetch(APIURL + routineId+"/activities", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': bearer
+        // 'Authorization': bearer
       },
       body: JSON.stringify({
         activityId: activityId,
@@ -263,7 +263,7 @@ export async function patchRoutineActivityByIdAPI(token, routineActivityId, coun
 
 export async function deleteRoutineActivityById(token, routineActivityId){
   const bearer = "Bearer " + token
-  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/routines_activities/"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/routine_activities/"
   try {
     const response = await fetch(APIURL + routineActivityId, {
       method: "DELETE",

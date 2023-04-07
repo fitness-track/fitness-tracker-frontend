@@ -1,5 +1,6 @@
 import {useState} from "react"
 import {useNavigate, Link} from "react-router-dom"
+import logo from "../../assets/login.jpg"
 import './Login.css';
 
 export function Login({setToken, token, username, setUsername, setFooterMessage}) {
@@ -47,17 +48,28 @@ export function Login({setToken, token, username, setUsername, setFooterMessage}
 
   return (
     <>
-    <form action="action_page.php" className="loginForm" onSubmit={(event) => loginUser(event)}>
-      <div className="container">
-      <input type="text" className="username" onChange={(event)=>setUsername (event.target.value)} placeholder="Username" required></input>
-     <br></br>
-      <input type="password" className="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password" required></input>
-      <br></br>
-      <button className="submit" type="submit">Login</button>
-      <br></br>
-     <Link className="link" to="../Register">Not Registered? Click Here!</Link>
+      <div className="container login-frame">
+        <div class="row align-items-center">
+          <div className="col text-end m-5">
+            <img className="login-logo" src={logo} alt="FitnessTrackr logo"/>
+          </div>
+          <div className="col card login-form">
+            <form action="action_page.php" className="loginForm" onSubmit={(event) => loginUser(event)}>
+              <div className="container">
+                <input type="text" className="username" onChange={(event)=>setUsername (event.target.value)} placeholder="Username" required></input>
+                <br></br>
+                <input type="password" className="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password" required></input>
+                <br></br>
+                <button className="btn btn-secondary" type="submit">Login</button>
+                <br></br>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="container registration-link text-center">
+          <Link to="../Register">Not Registered? <span className="second-word">Click Here!</span></Link>
+        </div>
       </div>
-    </form>
-     </>
+    </>
   )
 }

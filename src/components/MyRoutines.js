@@ -90,9 +90,14 @@ async function postActivityToRoutine(event){
                     <div id={"rId" + routine.id + routineActivity.id} className="accordion-collapse collapse" data-bs-parent={"#rId" + routine.id}>
                       <div className="accordion-body">
                         <p><strong>Activity Description: {routineActivity.description}</strong></p>
+                        <p>Routine Activity ID: {routineActivity.routineActivityId}</p>
                         <p>Activity Duration: {routineActivity.duration}</p>
                         <p>Activity Count.: {routineActivity.count}</p>
+                        {/* <button>Remove Activity</button> */}
                       </div>
+                      <Link to={`../../EditRoutineActivity/${routineActivity.routineActivityId}/${routineActivity.duration}/${routineActivity.count}`}>
+                        <button type="button" className="btn btn-primary" data-toggle="tooltip" title="Edit Routine"><i className="bi bi-scissors"></i></button>
+                      </Link>
                     </div>
                   
                   </div>
