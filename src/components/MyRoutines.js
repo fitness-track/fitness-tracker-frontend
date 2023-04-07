@@ -91,7 +91,11 @@ async function postActivityToRoutine(event){
                         <p><strong>Activity Description: {routineActivity.description}</strong></p>
                         <p>Activity Duration: {routineActivity.duration}</p>
                         <p>Activity Count.: {routineActivity.count}</p>
+                        {/* <button>Remove Activity</button> */}
                       </div>
+                      <Link to={`../../EditRoutineActivity/${routineActivity.id}/${routineActivity.duration}/${routineActivity.count}`}>
+                        <button type="button" className="btn btn-primary" data-toggle="tooltip" title="Edit Routine"><i className="bi bi-scissors"></i></button>
+                      </Link>
                     </div>
                   
                   </div>
