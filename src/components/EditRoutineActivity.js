@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import {patchRoutineActivityByIdAPI, deleteRoutineActivityById} from "../api"
 
 export default function EditRoutineActivity({token}) {
+  
   const {routineActivityId, activityDuration, activityCount} = useParams();
   const[duration, setDuration] = useState('');
   const[count, setCount] = useState('');
@@ -16,13 +17,6 @@ export default function EditRoutineActivity({token}) {
 
   return(
     <>
-    {console.log(routineActivityId, activityDuration, activityCount)}
-      <div>
-        <div>{routineActivityId}</div>
-        <div>{activityDuration}</div>
-        <div>{activityCount}</div>
-      </div>
-
     <div>
     <h3>Edit Routine Activity</h3>
     <form className='form' onSubmit={editRoutineActivity}>
