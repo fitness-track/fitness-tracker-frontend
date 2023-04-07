@@ -263,7 +263,7 @@ export async function patchRoutineActivityByIdAPI(token, routineActivityId, coun
 
 export async function deleteRoutineActivityById(token, routineActivityId){
   const bearer = "Bearer " + token
-  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/routines_activities/"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/routine_activities/"
   try {
     const response = await fetch(APIURL + routineActivityId, {
       method: "DELETE",
