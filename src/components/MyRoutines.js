@@ -118,3 +118,5 @@ export default function MyRoutines({token, username, setFooterMessage}) {
     </div>
 
     </section>:null
+  )
+}
