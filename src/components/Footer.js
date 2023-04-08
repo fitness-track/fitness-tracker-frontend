@@ -81,16 +81,16 @@ export default function Footer({footerMessage}){
                 </div>
             </div>
         </nav>:
-              footerMessage==="Error-New-Routine"?
-              <nav className="sticky-bottom bg-body-tertiary">
-                  <div className="container-fluid">
-                      <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
-                          <h3><i className="bi bi-x-octagon-fill"></i> <strong> Holy Guacamole!</strong></h3>
-                          We're not sure how, or why, but that failed.  Try again.
-                          <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                      </div>
-                  </div>
-              </nav>:
+        footerMessage==="Error-New-Routine"?
+        <nav className="sticky-bottom bg-body-tertiary">
+          <div className="container-fluid">
+              <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
+                  <h3><i className="bi bi-x-octagon-fill"></i> <strong> Holy Guacamole!</strong></h3>
+                  We're not sure how, or why, but that failed.  Try again.
+                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          </div>
+      </nav>:
       footerMessage==="Success-New-Activity"?
       <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
@@ -101,7 +101,7 @@ export default function Footer({footerMessage}){
               </div>
           </div>
       </nav>:
-      footerMessage==="Success-Edit-Routine"?
+      footerMessage==="Success-Edited-Routine"?
       <nav className="sticky-bottom bg-body-tertiary">
         <div className="container-fluid">
           <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-warning alert-dismissible fade show shadow" role="alert">
