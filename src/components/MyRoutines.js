@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { getUsernameRoutines, postRoutineAPI, getActivitiesAPI} from "../api"
 import Loading from "./Loading";
@@ -12,6 +12,7 @@ export default function MyRoutines({token, username, setFooterMessage}) {
   const [goal, setGoal] = useState("")
   const [activities, setActivities] = useState([]);
   const [isPublic, setIsPublic] = useState(false)
+  const navigate = useNavigate()
 
   async function postRoutine(event){
     event.preventDefault()
@@ -20,7 +21,7 @@ export default function MyRoutines({token, username, setFooterMessage}) {
     const results = await postRoutineAPI(token, name, goal, isPublic)
     console.log(results)
     if (results.id){
-      setFooterMessage("Success-Created-New-Routine")
+      setFooterMessage("Success-New-Routine")
     }
     setGoal("")
     setName("")

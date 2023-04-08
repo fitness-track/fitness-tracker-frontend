@@ -41,14 +41,14 @@ export default function App() {
         <Route path="*" element={<Error/>}></Route>
 
         <Route path="Routines" element={<Routines token={token}/>}></Route>
-        <Route path={"MyRoutines/" + username} element={<MyRoutines token={token} username={username} setFooterMessage={setFooterMessage}/>}></Route>
+        <Route path={"MyRoutines/" + username} element={<MyRoutines token={token} username={username} setFooterMessage={setFooterMessage} />}></Route>
 
         <Route path="Loading" element={<Loading/>}></Route>
         <Route path="Activities" element={<Activities token={token} setFooterMessage={setFooterMessage}/>}></Route>
         <Route path="Register" element={<Register setToken={setToken} setFooterMessage={setFooterMessage}/>}></Route>
         <Route path="Login" element={<Login token={token} setToken={setToken} username={username} setUsername={setUsername} setFooterMessage={setFooterMessage}/>}></Route>
-        <Route path="EditRoutine/:routineId/:routineName/:routineGoal" element={<EditRoutine token={token} setFooterMessage={setFooterMessage} />}></Route>
-        <Route path="EditRoutineActivity/:routineActivityId/:activityDuration/:activityCount" element={<EditRoutineActivity token={token} setFooterMessage={setFooterMessage}/>}></Route>
+        <Route path="EditRoutine/:routineId/:routineName/:routineGoal" element={<EditRoutine token={token} setFooterMessage={setFooterMessage} username={username}/>}></Route>
+        <Route path="EditRoutineActivity/:routineActivityId/:activityDuration/:activityCount" element={<EditRoutineActivity token={token} setFooterMessage={setFooterMessage} username={username}/>}></Route>
 
       </Routes>
     
