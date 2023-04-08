@@ -75,8 +75,8 @@ export default function Footer({footerMessage}){
         <nav className="sticky-bottom bg-body-tertiary">
             <div className="container-fluid">
                 <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
-                    <h3><i className="bi bi-check-circle-fill"></i> <strong> New activity created!</strong></h3>
-                    Routine added!  Now toss in some activities!
+                    <h3><i className="bi bi-check-circle-fill"></i> <strong> New routine created!</strong></h3>
+                    Routine added! give it a refresh and toss in some activities!
                     <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
@@ -101,16 +101,56 @@ export default function Footer({footerMessage}){
               </div>
           </div>
       </nav>:
+      footerMessage==="Error-Edited-Routine"?
+        <nav className="sticky-bottom bg-body-tertiary">
+            <div className="container-fluid">
+                <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
+                    <h3><i className="bi bi-x-octagon-fill"></i> <strong> Editing Failed</strong></h3>
+                    Something went wrong while editing.  Try again.
+                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </nav>:
       footerMessage==="Success-Edited-Routine"?
       <nav className="sticky-bottom bg-body-tertiary">
         <div className="container-fluid">
-          <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-warning alert-dismissible fade show shadow" role="alert">
-             <h3><i className="bi bi-exclamation-triangle-fill"></i> <strong> Routine Edited!</strong></h3>
-              Please return to the previous page to see the changes take effect.
+          <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
+             <h3><i className="bi bi-check-circle-fill"></i> <strong> Routine Edited!</strong></h3>
+              Maybe add some new activities as well!
               <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>
         </nav>:
+        footerMessage==="Success-Added-Activity-To-Routine"?
+        <nav className="sticky-bottom bg-body-tertiary">
+            <div className="container-fluid">
+                <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
+                    <h3><i className="bi bi-check-circle-fill"></i> <strong> Activity Added!</strong></h3>
+                    Test out your new Routine Activity!
+                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </nav>:
+        footerMessage==="Success-Edited-Routine-Activity"?
+        <nav className="sticky-bottom bg-body-tertiary">
+          <div className="container-fluid">
+            <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
+               <h3><i className="bi bi-check-circle-fill"></i> <strong> Routine Activity Edited!</strong></h3>
+                Get to it! Time to get that heart racing!
+                <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          </div>
+          </nav>:
+          footerMessage==="Error-Edited-Routine-Activity"?
+          <nav className="sticky-bottom bg-body-tertiary">
+              <div className="container-fluid">
+                  <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
+                      <h3><i className="bi bi-x-octagon-fill"></i> <strong> Editing Routine Activity</strong></h3>
+                      Something went wrong while editing.  Try again.
+                      <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+              </div>
+          </nav>:
         footerMessage==="Error-New-Activity-Exists"?
         <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">

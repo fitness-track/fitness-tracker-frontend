@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { getActivitiesAPI, postActivityToRoutineAPI, patchRoutineByIdAPI, deleteRoutineById} from "../api"
 
-export default function EditRoutine({token, setFooterMessage}) {
+export default function EditRoutine({token, setFooterMessage, username}) {
 const {routineId, routineName, routineGoal} = useParams();
 const[name, setName] = useState('')
 const[goal, setGoal] = useState('')
@@ -12,6 +12,7 @@ const [activities, setActivities] = useState([])
 const [activityId, setActivityId] = useState('')
 const [isLoading, setIsLoading] = useState(false)
 const[isPublic, setIsPublic] = useState(false)
+const navigate = useNavigate()
 
 useEffect(()=>{
     async function getActivities(){
@@ -32,6 +33,7 @@ async function addActivityToRoutine(event){
   console.log(response)
   if (response.id){
     setFooterMessage("Success-Added-Activity-To-Routine")
+    navigate(`/MyRoutines/${username}`)
   }
   setCount("")
   setDuration("")
@@ -45,8 +47,10 @@ async function editRoutine(event){
   console.log(results)
 
   if(results.id){
-    setFooterMessage("Success-Edit-Routine")
+    setFooterMessage("Success-Edited-Routine")
+    navigate(`/MyRoutines/${username}`)
   }
+  
  
 }
   return(
@@ -61,6 +65,7 @@ async function editRoutine(event){
           onClick={() => {
             deleteRoutineById(token,routineId)
             console.log("Routine", routineId, "deleted")
+            navigate(`/MyRoutines/${username}`)
           }}>
           Delete Routine
         </button>

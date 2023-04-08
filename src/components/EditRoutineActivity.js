@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import {patchRoutineActivityByIdAPI, deleteRoutineActivityById} from "../api"
 
 
-export default function EditRoutineActivity({token, setFooterMessage}) {
+export default function EditRoutineActivity({token, setFooterMessage, username}) {
 
   const {routineActivityId, activityDuration, activityCount} = useParams();
   const[duration, setDuration] = useState('');
   const[count, setCount] = useState('');
+  const navigate = useNavigate()
 
   async function editRoutineActivity(event){
     event.preventDefault()
@@ -16,7 +17,8 @@ export default function EditRoutineActivity({token, setFooterMessage}) {
     const results = await patchRoutineActivityByIdAPI(token, routineActivityId, count, duration)
     console.log(results)
     if (results.id){
-      setFooterMessage("Succes-Edited-Routine-Activity")
+      setFooterMessage("Success-Edited-Routine-Activity")
+      navigate(`/MyRoutines/${username}`)
     }
   }
 
@@ -32,6 +34,7 @@ export default function EditRoutineActivity({token, setFooterMessage}) {
     <button onClick={() => {
       deleteRoutineActivityById(token,routineActivityId);
       console.log("RoutineActivity", routineActivityId, "deleted")
+      navigate(`/MyRoutines/${username}`)
     }}>
       Delete Routine Activity
     </button>
