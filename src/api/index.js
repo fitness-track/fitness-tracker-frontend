@@ -45,19 +45,20 @@ export async function getUsersMeAPI(token){
 export async function getUsernameRoutines(username, token){
   const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/users/"
   
-  try {
-
-    const bearer = "Bearer " + token
-    const response = await fetch(APIURL + username + "/routines", {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': bearer
-      },
-    })
-    const results = await response.json();
-    return results;
-  } catch(error) {
-      console.error (error);
+  if (token){
+    try {
+      const bearer = "Bearer " + token
+      const response = await fetch(APIURL + username + "/routines", {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': bearer
+        },
+      })
+      const results = await response.json();
+      return results;
+    } catch(error) {
+        console.error (error);
+    }
   }
 }
 

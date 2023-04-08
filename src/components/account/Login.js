@@ -23,7 +23,7 @@ export function Login({setToken, token, username, setUsername, setFooterMessage}
       });
       let result = await response.json()
 
-      if (result.name=="IncorrectCredentialsError"){
+      if (result.name==="IncorrectCredentialsError"){
         setFooterMessage("Error-Login-Credentials")
       }
 
@@ -40,21 +40,20 @@ export function Login({setToken, token, username, setUsername, setFooterMessage}
       // setVerifiedUser(userName)
     }catch(error){
       setFooterMessage("Error-Login-Other")
-      console.log("There was an error logging in", error)
+      console.error("There was an error logging in", error)
     }
-
-
   }
 
   return (
     <>
       <div className="container login-frame">
-        <div class="row align-items-center">
+        <div className="row align-items-center">
           <div className="col text-end m-5">
             <img className="login-logo" src={logo} alt="FitnessTrackr logo"/>
           </div>
           <div className="col card login-form">
-            <form action="action_page.php" className="loginForm" onSubmit={(event) => loginUser(event)}>
+            <h1>Login:</h1>
+            <form className="loginForm" onSubmit={(event) => loginUser(event)}>
               <div className="container">
                 <input type="text" className="username" onChange={(event)=>setUsername (event.target.value)} placeholder="Username" required></input>
                 <br></br>

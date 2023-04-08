@@ -1,7 +1,7 @@
 export default function Footer({footerMessage}){
 
   return(
-      footerMessage=="Error-Login-Other"?
+      footerMessage==="Error-Login-Other"?
       <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
@@ -11,7 +11,7 @@ export default function Footer({footerMessage}){
               </div>
           </div>
       </nav>:
-      footerMessage=="Error-Login-Credentials"?
+      footerMessage==="Error-Login-Credentials"?
       <nav className="sticky-bottom bg-body-tertiary">
         <div className="container-fluid">
           <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
@@ -21,7 +21,7 @@ export default function Footer({footerMessage}){
           </div>
       </div>
       </nav>:
-      footerMessage=="Success-Login"?
+      footerMessage==="Success-Login"?
       <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
@@ -31,7 +31,7 @@ export default function Footer({footerMessage}){
               </div>
           </div>
       </nav>:
-      footerMessage=="Error-Register-Password"?
+      footerMessage==="Error-Register-Password"?
       <nav className="sticky-bottom bg-body-tertiary">
         <div className="container-fluid">
           <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
@@ -41,7 +41,7 @@ export default function Footer({footerMessage}){
           </div>
       </div>
       </nav>:
-      footerMessage=="Success-Register"?
+      footerMessage==="Success-Register"?
       <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
@@ -51,7 +51,7 @@ export default function Footer({footerMessage}){
               </div>
           </div>
       </nav>:
-      footerMessage=="Error-Register-User"?
+      footerMessage==="Error-Register-User"?
       <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-warning alert-dismissible fade show shadow" role="alert">
@@ -61,7 +61,7 @@ export default function Footer({footerMessage}){
               </div>
           </div>
       </nav>:
-      footerMessage=="Error-Register-Other"?
+      footerMessage==="Error-Register-Other"?
         <nav className="sticky-bottom bg-body-tertiary">
             <div className="container-fluid">
                 <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
@@ -71,37 +71,27 @@ export default function Footer({footerMessage}){
                 </div>
             </div>
         </nav>:
-        footerMessage=="Succes-Edited-Routine-Activity"?
+        footerMessage==="Success-New-Routine"?
         <nav className="sticky-bottom bg-body-tertiary">
             <div className="container-fluid">
                 <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
-                    <h3><i className="bi bi-check-circle-fill"></i> <strong> Routine Activity Updated!</strong></h3>
-                    Time to try out your new routine!
+                    <h3><i className="bi bi-check-circle-fill"></i> <strong> New activity created!</strong></h3>
+                    Routine added!  Now toss in some activities!
                     <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
         </nav>:
-        footerMessage=="Success-Created-New-Routine"?
+        footerMessage==="Error-New-Routine"?
         <nav className="sticky-bottom bg-body-tertiary">
-            <div className="container-fluid">
-                <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
-                    <h3><i className="bi bi-check-circle-fill"></i> <strong> Routine Created!</strong></h3>
-                    Think about adding some activities now!
-                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        </nav>:
-        footerMessage=="Success-Added-Activity-To-Routine"?
-        <nav className="sticky-bottom bg-body-tertiary">
-            <div className="container-fluid">
-                <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
-                    <h3><i className="bi bi-check-circle-fill"></i> <strong> Activity Added!</strong></h3>
-                    Get to it! Time to get that heart pumping!
-                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        </nav>:
-      footerMessage=="Success-New-Activity"?
+          <div className="container-fluid">
+              <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
+                  <h3><i className="bi bi-x-octagon-fill"></i> <strong> Holy Guacamole!</strong></h3>
+                  We're not sure how, or why, but that failed.  Try again.
+                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          </div>
+      </nav>:
+      footerMessage==="Success-New-Activity"?
       <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
@@ -111,27 +101,17 @@ export default function Footer({footerMessage}){
               </div>
           </div>
       </nav>:
-      footerMessage=="Success-Edited-Routine"?
+      footerMessage==="Success-Edited-Routine"?
       <nav className="sticky-bottom bg-body-tertiary">
-          <div className="container-fluid">
-              <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
-                  <h3><i className="bi bi-check-circle-fill"></i> <strong> Routine Edited!</strong></h3>
-                  Have a good workout!
-                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-          </div>
-      </nav>:
-      footerMessage=="Success-Deleted-Routine"?
-      <nav className="sticky-bottom bg-body-tertiary">
-          <div className="container-fluid">
-              <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
-                  <h3><i className="bi bi-check-circle-fill"></i> <strong> Routine Deleted!</strong></h3>
-                  Sorry to see it go!
-                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-          </div>
-      </nav>:
-        footerMessage=="Error-New-Activity-Exists"?
+        <div className="container-fluid">
+          <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-warning alert-dismissible fade show shadow" role="alert">
+             <h3><i className="bi bi-exclamation-triangle-fill"></i> <strong> Routine Edited!</strong></h3>
+              Please return to the previous page to see the changes take effect.
+              <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+        </nav>:
+        footerMessage==="Error-New-Activity-Exists"?
         <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
             <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-warning alert-dismissible fade show shadow" role="alert">
@@ -141,7 +121,7 @@ export default function Footer({footerMessage}){
               </div>
           </div>
       </nav>:
-      footerMessage=="Error-New-Activity"?
+      footerMessage==="Error-New-Activity"?
         <nav className="sticky-bottom bg-body-tertiary">
               <div className="container-fluid">
                   <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
@@ -151,6 +131,5 @@ export default function Footer({footerMessage}){
                   </div>
               </div>
           </nav>:null
-          
   )
 }

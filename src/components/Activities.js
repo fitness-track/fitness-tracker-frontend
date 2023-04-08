@@ -14,15 +14,14 @@ export default function Activities({token, setFooterMessage}) {
     setActivityName(event.target.value);   
 }
 
-const handleActivityDescriptionChange = (event) => {
-  setActivityDescription(event.target.value);   
+  const handleActivityDescriptionChange = (event) => {
+    setActivityDescription(event.target.value);   
 }
 
   useEffect(()=>{
     async function getActivities(){
       setIsLoading(true)
       const response = await getActivitiesAPI()
-      console.log(response)
       setActivities(response)
       setIsLoading(false)
     }
@@ -33,19 +32,18 @@ const handleActivityDescriptionChange = (event) => {
     event.preventDefault();
     setFooterMessage("")
     const response = await postActivityAPI(token, activityName, activityDescription);
-    console.log(response)
+  
     if (response.id){
       setFooterMessage("Success-New-Activity")
     }
-    if (response.name=="NotFound"){
+    if (response.name==="NotFound"){
       setFooterMessage("Error-New-Activity-Exists")
     }
-    if (response.name=="MissingUserError"){
+    if (response.name==="MissingUserError"){
       setFooterMessage("Error-New-Activity")
     }
     setActivityName("");
     setActivityDescription("");
-
   }
 
   return(
@@ -84,8 +82,8 @@ const handleActivityDescriptionChange = (event) => {
   {
     activities?.map((activity)=>{
       return(
-        <div className="col">
-          <div className="cardboy" key={"aId" + activity.id}>
+        <div className="col" key={"aId" + activity.id}>
+          <div className="cardboy">
             <div className="body">
             <i className="name"/><strong> {activity.name}</strong> 
             <p><i className=""/> {activity.description}</p>

@@ -3,7 +3,7 @@ import { getRoutinesAPI} from "../api"
 import Loading from "./Loading";
 import './Routines.css';
 
-export default function Routines({token}) {
+export default function Routines() {
   const [routines, setRoutines] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
   const [nameFilter, setNameFilter] = useState("");
@@ -30,6 +30,7 @@ export default function Routines({token}) {
     isLoading?<Loading/>:
 
       <section className="container text-center">
+      <h1 className="page-title">Routines Library:</h1>
         <div className="wrapper">
         {
           nameFilter?
@@ -53,7 +54,7 @@ export default function Routines({token}) {
                       <div className="card activityCard text-bg-secondary mb-3 overflow-auto">
                         <div id={"rId" + routine.id} className="accordion">
                         {
-                          routine.activities.map((routineActivity, index)=>{
+                          routine.activities.map((routineActivity)=>{
                           return(                                                               
                             <div className="accordion-item" key={"rId" + routine.id + routineActivity.name}>
                               <h2 className="accordion-header">

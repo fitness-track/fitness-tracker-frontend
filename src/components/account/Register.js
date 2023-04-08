@@ -1,11 +1,11 @@
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
+import logo from "../../assets/register.jpg"
 import "./Login"
 
 export function Register({setToken, setFooterMessage}) {
   const [username, setUsername]= useState('')
   const [password, setPassword]= useState('')
-  const [verifiedUser, setVerifiedUser]= useState('')
   const navigate = useNavigate()
 
   async function registerUser(event){
@@ -23,7 +23,6 @@ export function Register({setToken, setFooterMessage}) {
         })
       });
       let result = await response.json()
-      console.log(result);
       
       if(result.token){
         setFooterMessage("Success-Register")
@@ -32,33 +31,40 @@ export function Register({setToken, setFooterMessage}) {
         navigate(`/MyRoutines/${username}`)
       }
 
-      if(result.name=="UserExistsError"){
+      if(result.name==="UserExistsError"){
         setFooterMessage("Error-Register-User")
       }
 
-      if(result.name=="PasswordLengthError"){
+      if(result.name==="PasswordLengthError"){
         setFooterMessage("Error-Register-Password")
       }
 
-
-      //Again....if we choose to take this route for setVerifiedUser to use in a possible ternary function later
-      // setVerifiedUser(username)
-      //Do we want to navigate away from this page once they have registered? Perhaps to their profile or the main page.
     }catch(error){
       setFooterMessage("Error-Register-Other")
-      console.log("There was an error during registration", error)
+      console.error("There was an error during registration", error)
     }
-
-
   }
 
   return ( 
-    <form onSubmit={(event) => registerUser(event)}>
-      <div className="container">
-      <input type="text" className ="username" value={username} onChange={(event)=>setUsername (event.target.value)} placeholder="Username"></input>
-      <input type="password" className ="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
-      <button className ="submit" type="submit">Register</button>
+
+    <div className="container login-frame">
+      <div className="row align-items-center">
+        <div className="col text-end m-5">
+          <img className="login-logo" src={logo} alt="FitnessTrackr logo"/>
+        </div>
+      <div className="col card login-form">
+      <h1>Register:</h1>
+        <form onSubmit={(event) => registerUser(event)}>
+          <div className="container">
+            <input type="text" className ="username" value={username} onChange={(event)=>setUsername (event.target.value)} placeholder="Username"></input>
+            <input type="password" className ="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
+            <button className ="btn btn-secondary" type="submit">Register</button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
+    <div className="container registration-link text-center">
+    </div>
+  </div>
   )
 }
