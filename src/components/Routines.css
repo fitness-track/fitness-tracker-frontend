@@ -27,9 +27,18 @@
   border-radius: 25px;
   height:fit-content;
   padding-bottom: 10px;
+  cursor:pointer;
 }
-
 
 .filter-link{
   color: white;
+  cursor:pointer;
+}
+
+.page-title{
+  color: white;
+}
+
+.error{
+  color: red;
 }

@@ -39,8 +39,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Routines/>}></Route>
         <Route path="*" element={<Error/>}></Route>
-        <Route path="Routines" element={<Routines token={token}/>}></Route>
-        <Route path={"MyRoutines/" + username} element={<MyRoutines token={token} username={username}/>}></Route>
+        <Route path="Routines" element={<Routines/>}></Route>
+        <Route path={"MyRoutines/" + username} element={<MyRoutines token={token} username={username} setFooterMessage={setFooterMessage} footerMessage={footerMessage}/>}></Route>
         <Route path="Loading" element={<Loading/>}></Route>
         <Route path="Activities" element={<Activities token={token} setFooterMessage={setFooterMessage}/>}></Route>
         <Route path="Register" element={<Register setToken={setToken} setFooterMessage={setFooterMessage}/>}></Route>
