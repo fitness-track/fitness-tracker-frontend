@@ -1,5 +1,5 @@
 export async function getActivitiesAPI(){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/activities"
   try {
     const response = await fetch(APIURL)
     const results = await response.json();
@@ -21,7 +21,7 @@ export async function getRoutinesAPI(){
 }
 
 export async function getUsersMeAPI(token){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/users/me"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/users/me"
 
   try {
     const bearer = "Bearer " + token
@@ -43,7 +43,7 @@ export async function getUsersMeAPI(token){
 }
 
 export async function getUsernameRoutines(username, token){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/users/"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/users/"
   
   try {
 
@@ -62,7 +62,7 @@ export async function getUsernameRoutines(username, token){
 }
 
 export async function postActivityAPI(token, activityName, activityDescription){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities/"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/activities/"
 
   try {
     const bearer = "Bearer " + token
@@ -86,7 +86,7 @@ export async function postActivityAPI(token, activityName, activityDescription){
 }
 
 export async function patchActivityByIdAPI(token, activityId, activityName, activityDescription){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities/"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/activities/"
   
   try {
     const bearer = "Bearer " + token
@@ -113,7 +113,7 @@ export async function patchActivityByIdAPI(token, activityId, activityName, acti
 }
 
 export async function getRoutinesWithActivityIdAPI(activityId){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/activities/"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/activities/"
   
   try {
     const response = await fetch(APIURL + activityId + "/routines", {
@@ -133,7 +133,7 @@ export async function getRoutinesWithActivityIdAPI(activityId){
 }
 
 export async function postRoutineAPI(token, name, goal, isPublic){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/routines/"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/routines/"
 
   try {
     const bearer = "Bearer " + token
@@ -161,7 +161,7 @@ export async function postRoutineAPI(token, name, goal, isPublic){
 }
 
 export async function patchRoutineByIdAPI(token, routineId, routineName, goal, isPublic){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/routines/"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/routines/"
   
   try {
     const bearer = "Bearer " + token
@@ -207,7 +207,7 @@ export async function deleteRoutineById(token, routineId){
 }
 
 export async function postActivityToRoutineAPI(routineId, activityId, count, duration){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/routines/"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/routines/"
 
   try {
     // const bearer = "Bearer " + token
@@ -235,7 +235,7 @@ export async function postActivityToRoutineAPI(routineId, activityId, count, dur
 }
 
 export async function patchRoutineActivityByIdAPI(token, routineActivityId, count, duration){
-  const APIURL = "http://fitnesstrac-kr.herokuapp.com/api/routine_activities/"
+  const APIURL = "https://fitnesstrac-kr.herokuapp.com/api/routine_activities/"
   
   try {
     const bearer = "Bearer " + token

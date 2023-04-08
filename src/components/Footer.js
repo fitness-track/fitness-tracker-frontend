@@ -2,7 +2,7 @@ export default function Footer({footerMessage}){
 
   return(
       footerMessage=="Error-Login-Other"?
-      <nav className="navbar sticky-bottom bg-body-tertiary">
+      <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
                   <h3><i className="bi bi-x-octagon-fill"></i> <strong> Holy Guacamole!</strong></h3>
@@ -12,17 +12,17 @@ export default function Footer({footerMessage}){
           </div>
       </nav>:
       footerMessage=="Error-Login-Credentials"?
-      <nav className="navbar sticky-bottom bg-body-tertiary">
+      <nav className="sticky-bottom bg-body-tertiary">
         <div className="container-fluid">
           <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
               <h3><i className="bi bi-x-octagon-fill"></i> <strong> Incorrect Login</strong></h3>
-              Username and/or Login are incorrect.  Try again.
+              Username and/or Password are incorrect.  Try again.
               <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
       </div>
       </nav>:
       footerMessage=="Success-Login"?
-      <nav className="navbar sticky-bottom bg-body-tertiary">
+      <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
                   <h3><i className="bi bi-check-circle-fill"></i> <strong> Logged in!</strong></h3>
@@ -32,7 +32,7 @@ export default function Footer({footerMessage}){
           </div>
       </nav>:
       footerMessage=="Error-Register-Password"?
-      <nav className="navbar sticky-bottom bg-body-tertiary">
+      <nav className="sticky-bottom bg-body-tertiary">
         <div className="container-fluid">
           <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
               <h3><i className="bi bi-x-octagon-fill"></i> <strong> Password Length Error</strong></h3>
@@ -42,7 +42,7 @@ export default function Footer({footerMessage}){
       </div>
       </nav>:
       footerMessage=="Success-Register"?
-      <nav className="navbar sticky-bottom bg-body-tertiary">
+      <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
                   <h3><i className="bi bi-check-circle-fill"></i> <strong> New account created!</strong></h3>
@@ -52,7 +52,7 @@ export default function Footer({footerMessage}){
           </div>
       </nav>:
       footerMessage=="Error-Register-User"?
-      <nav className="navbar sticky-bottom bg-body-tertiary">
+      <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-warning alert-dismissible fade show shadow" role="alert">
                   <h3><i className="bi bi-exclamation-triangle-fill"></i> <strong> Username already exists</strong></h3>
@@ -62,7 +62,7 @@ export default function Footer({footerMessage}){
           </div>
       </nav>:
       footerMessage=="Error-Register-Other"?
-        <nav className="navbar sticky-bottom bg-body-tertiary">
+        <nav className="sticky-bottom bg-body-tertiary">
             <div className="container-fluid">
                 <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
                     <h3><i className="bi bi-x-octagon-fill"></i> <strong> Registration Failed</strong></h3>
@@ -72,7 +72,7 @@ export default function Footer({footerMessage}){
             </div>
         </nav>:
       footerMessage=="Success-New-Activity"?
-      <nav className="navbar sticky-bottom bg-body-tertiary">
+      <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
               <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-success alert-dismissible fade show shadow" role="alert">
                   <h3><i className="bi bi-check-circle-fill"></i> <strong> New activity created!</strong></h3>
@@ -82,7 +82,7 @@ export default function Footer({footerMessage}){
           </div>
       </nav>:
         footerMessage=="Error-New-Activity-Exists"?
-        <nav className="navbar sticky-bottom bg-body-tertiary">
+        <nav className="sticky-bottom bg-body-tertiary">
           <div className="container-fluid">
             <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-warning alert-dismissible fade show shadow" role="alert">
                <h3><i className="bi bi-exclamation-triangle-fill"></i> <strong> This activity exists!</strong></h3>
@@ -92,7 +92,7 @@ export default function Footer({footerMessage}){
           </div>
       </nav>:
       footerMessage=="Error-New-Activity"?
-        <nav className="navbar sticky-bottom bg-body-tertiary">
+        <nav className="sticky-bottom bg-body-tertiary">
               <div className="container-fluid">
                   <div className="position-absolute bottom-0 start-50 translate-middle-x text-center alert alert-danger alert-dismissible fade show shadow" role="alert">
                       <h3><i className="bi bi-x-octagon-fill"></i> <strong> Error - Not Logged In</strong></h3>

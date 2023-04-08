@@ -1,5 +1,6 @@
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
+import "./Login"
 
 export function Register({setToken, setFooterMessage}) {
   const [username, setUsername]= useState('')
@@ -53,9 +54,11 @@ export function Register({setToken, setFooterMessage}) {
 
   return ( 
     <form onSubmit={(event) => registerUser(event)}>
-      <input type="text" value={username} onChange={(event)=>setUsername (event.target.value)} placeholder="Username"></input>
-      <input type="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
-      <button type="submit">Register</button>
+      <div className="container">
+      <input type="text" className ="username" value={username} onChange={(event)=>setUsername (event.target.value)} placeholder="Username"></input>
+      <input type="password" className ="password" value={password} onChange={(event)=>setPassword(event.target.value)} placeholder="Password"></input>
+      <button className ="submit" type="submit">Register</button>
+      </div>
     </form>
   )
 }

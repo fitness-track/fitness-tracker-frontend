@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
 import { getUsernameRoutines, postRoutineAPI, getActivitiesAPI} from "../api"
 import Loading from "./Loading";
 import './Routines.css';
+
 export default function MyRoutines({token, username}) {
   const [routines, setRoutines] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
@@ -44,6 +46,7 @@ export default function MyRoutines({token, username}) {
   return(
     isLoading?<Loading/>:
     token?
+
     <section className="container text-center">
       <div className="wrapper">
         <div className="subWrapper">
@@ -83,6 +86,7 @@ export default function MyRoutines({token, username}) {
                             <button type="button" className="btn btn-primary" data-toggle="tooltip" title="Edit Routine"><i className="bi bi-scissors"></i></button>
                           </Link>
                         </div>
+
                       </div>
                     )
                     })
@@ -108,5 +112,5 @@ export default function MyRoutines({token, username}) {
         <button id='submitButton' type="submit">Submit Post</button>
     </form>
     </div>
+
     </section>:null
-)}

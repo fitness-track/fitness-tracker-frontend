@@ -1,36 +1,34 @@
 .actCard{
   margin-bottom: 15px;
   color: lightgrey;
-  /* height: 200px; */
 }
 
-.card-body{
-  margin-top: 25px;
+.body{
   box-shadow: 3px 2px 4px rgb(87, 85, 85);
+  height: 250px;
   background-color: rgb(42, 39, 39);
   color: lightgrey;
-  border-radius: 25px;
+  border-radius : 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
 }
 
-.card{
+.cardboy{
   border:none;
   margin-top: 10px;
-  background-color: rgb(57, 55, 55);
+  border-radius : 25px;
 }
 
-.new-activity{
-  width: 250px;
-  border: 3px inset #121212;
+.name{
+  text-emphasis: 30px;
 }
 
-h4{
+.active-logo{
+  height: 15vw;
+  box-shadow: 5px 5px 15px 1px black;
+}
+
+.subWrapper h2{
   color: white;
 }
-
-/* .col{
-  margin-top: 50px;
-  box-shadow: 3px 2px 4px rgb(87, 85, 85);
-  background-color: rgb(42, 39, 39);
-  color: lightgrey;
-  border-radius: 25px;
-} */
