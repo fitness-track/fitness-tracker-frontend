@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { getActivitiesAPI, postActivityToRoutineAPI, patchRoutineByIdAPI, deleteRoutineById} from "../api"
 
-export default function EditRoutine({token}) {
+export default function EditRoutine({token, setFooterMessage}) {
 const {routineId, routineName, routineGoal} = useParams();
 const[name, setName] = useState('')
 const[goal, setGoal] = useState('')
@@ -26,16 +26,28 @@ useEffect(()=>{
   
 async function addActivityToRoutine(event){
   event.preventDefault()
+  setFooterMessage("")
   console.log(routineId, activityId, count, duration)
   const response = await postActivityToRoutineAPI(routineId, activityId, count, duration)
   console.log(response)
+  if (response.id){
+    setFooterMessage("Success-Added-Activity-To-Routine")
+  }
+  setCount("")
+  setDuration("")
 }
 
 async function editRoutine(event){
   event.preventDefault()
   console.log(token, name, goal, isPublic)
+  setFooterMessage("")
   const results = await patchRoutineByIdAPI(token, routineId, name, goal, isPublic)
   console.log(results)
+
+  if(results.id){
+    setFooterMessage("Success-Edit-Routine")
+  }
+ 
 }
   return(
   <>
