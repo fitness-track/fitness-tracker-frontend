@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
+import {useNavigate, Link} from "react-router-dom"
 
 import { getActivitiesAPI, postActivityToRoutineAPI, postRoutineAPI, patchRoutineByIdAPI, deleteRoutineById} from "../api"
 
@@ -13,6 +14,7 @@ const[duration, setDuration] = useState('')
 const [activities, setActivities] = useState([])
 const [activityId, setActivityId] = useState('')
 const [isLoading, setIsLoading] = useState(false)
+const navigate = useNavigate()
 
 
 const[isPublic, setIsPublic] = useState(false)
@@ -67,6 +69,7 @@ async function editRoutine(event){
                         // setRoutineId(routine.id);
                         deleteRoutineById(token,routineId);
                         console.log("Routine", routineId, "deleted")
+                        navigate(-1)
                       }}
                     >
                       Delete Routine
