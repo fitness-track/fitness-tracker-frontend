@@ -1,6 +1,50 @@
 .button{
-    background-color: rgb(222, 69, 69);
-    size: 100%;
+
+    background-color:lightgray;
+    border: none;
     color: black;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    padding: 5px 13px;
+    
+}
+.button:hover{
+    background-color: rgb(119, 116, 116);
+    color: white;
+    padding: 6px 14px;
+}
+
+
+.actCard{
+    margin-bottom: 15px;
+    color: lightgrey;
+}
+  
+.body{
+box-shadow: 3px 2px 4px rgb(87, 85, 85);
+height: 250px;
+background-color: rgb(42, 39, 39);
+color: lightgrey;
+border-radius : 25px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 20px;
+}
+
+.cardboy{
+border:none;
+margin-top: 10px;
+border-radius : 25px;
+}
+
+.name{
+text-emphasis: 30px;
+}
+
+.active-logo{
+height: 15vw;
+box-shadow: 5px 5px 15px 1px black;
+}
+
+.subWrapper h2{
+color: white;
 }
